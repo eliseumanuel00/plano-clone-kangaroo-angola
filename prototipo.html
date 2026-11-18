@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Protótipo clicável — Plataforma para Escritórios de Contabilidade (Angola)</title>
+<style>
+  :root{--azul:#1346AF;--escuro:#0D2F75;--fundo:#EEF1F8;--cartao:#fff;--texto:#1C2333;--suave:#5A6478;--linha:#E2E6F0;--verde:#0E7A4F;--vermelho:#D43A2F;--ambar:#9A6B00;}
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  body{font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--fundo);color:var(--texto);}
+  .barra{max-width:430px;margin:0 auto;padding:14px 14px 0;}
+  .barra h1{font-size:17px;color:var(--escuro);}
+  .barra p{font-size:13px;color:var(--suave);margin:4px 0 10px;}
+  .troca{display:flex;background:#fff;border:1px solid var(--linha);border-radius:12px;padding:4px;gap:4px;}
+  .troca button{flex:1;border:0;background:transparent;padding:9px;border-radius:9px;font-size:14.5px;font-weight:600;color:var(--suave);cursor:pointer;}
+  .troca button.on{background:var(--azul);color:#fff;}
+  .tel{max-width:430px;margin:12px auto 0;background:#fff;border:1px solid var(--linha);border-radius:22px 22px 0 0;min-height:640px;display:flex;flex-direction:column;overflow:hidden;}
+  .ecra{display:none;padding:18px 16px 86px;flex:1;}
+  .ecra.on{display:block;}
+  .topo-ecra{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+  .avatar{width:42px;height:42px;border-radius:50%;background:var(--azul);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;flex:none;}
+  .avatar.cinza{background:#8A94A8;}
+  .topo-ecra .nome{font-weight:700;font-size:16.5px;}
+  .topo-ecra .sub{font-size:13px;color:var(--suave);}
+  h2.tit{font-size:20px;margin:4px 0 12px;}
+  .cartao{border:1px solid var(--linha);border-radius:14px;padding:14px;margin-bottom:11px;background:#fff;cursor:pointer;}
+  .cartao:active{background:var(--fundo);}
+  .cartao .linha1{display:flex;justify-content:space-between;align-items:center;gap:8px;}
+  .cartao .t{font-weight:700;font-size:15.5px;}
+  .cartao .d{font-size:13.5px;color:var(--suave);margin-top:3px;}
+  .badge{background:var(--vermelho);color:#fff;font-size:12px;font-weight:700;min-width:22px;height:22px;border-radius:11px;display:flex;align-items:center;justify-content:center;padding:0 6px;flex:none;}
+  .badge.azul{background:var(--azul);} .badge.verde{background:var(--verde);}
+  .passos{display:flex;gap:6px;margin:12px 0 16px;}
+  .passo{flex:1;text-align:center;font-size:12px;color:var(--suave);}
+  .passo .bola{width:30px;height:30px;border-radius:50%;border:2px solid var(--linha);margin:0 auto 4px;display:flex;align-items:center;justify-content:center;font-weight:700;background:#fff;}
+  .passo.feito .bola{background:var(--verde);border-color:var(--verde);color:#fff;}
+  .passo.atual .bola{border-color:var(--azul);color:var(--azul);}
+  .passo.atual{color:var(--azul);font-weight:700;}
+  .btn{display:block;width:100%;border:0;border-radius:12px;padding:15px;font-size:16px;font-weight:700;cursor:pointer;text-align:center;}
+  .btn.pri{background:var(--azul);color:#fff;}
+  .btn.sec{background:var(--fundo);color:var(--azul);border:1px solid var(--linha);}
+  .btn + .btn{margin-top:9px;}
+  .kv{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--linha);font-size:15px;}
+  .kv span:first-child{color:var(--suave);}
+  .kv span:last-child{font-weight:600;text-align:right;}
+  .sugestao{background:#EAF3EE;border:1px solid #BFE3D2;border-radius:12px;padding:13px;margin:14px 0;}
+  .sugestao .t{font-weight:700;color:var(--verde);}
+  .sugestao .d{font-size:13.5px;margin-top:3px;}
+  .doc-sim{background:var(--fundo);border:1px dashed #B9C2D8;border-radius:12px;padding:16px;text-align:center;color:var(--suave);font-size:14px;margin-bottom:14px;}
+  .pesquisa{width:100%;border:1px solid var(--linha);border-radius:12px;padding:13px;font-size:15.5px;margin-bottom:14px;}
+  .conta{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--linha);border-radius:12px;padding:13px;margin-bottom:9px;cursor:pointer;font-size:15px;}
+  .conta:active{background:var(--fundo);}
+  .estado{font-size:12.5px;font-weight:700;padding:3px 9px;border-radius:12px;}
+  .e-rec{background:#E6ECFA;color:var(--azul);} .e-tra{background:#FDF6E0;color:var(--ambar);} .e-ok{background:#E3F2EA;color:var(--verde);}
+  .nav{position:sticky;bottom:0;background:#fff;border-top:1px solid var(--linha);display:flex;padding:8px 4px calc(8px + env(safe-area-inset-bottom));}
+  .nav button{flex:1;background:none;border:0;font-size:12px;color:var(--suave);cursor:pointer;padding:6px 2px;font-weight:600;}
+  .nav button.on{color:var(--azul);}
+  .nav .ico{display:block;font-size:19px;margin-bottom:2px;}
+  .voltar{background:none;border:0;color:var(--azul);font-size:15px;font-weight:700;cursor:pointer;padding:0 0 10px;}
+  .nota{max-width:430px;margin:0 auto;padding:12px 16px 30px;font-size:12.5px;color:var(--suave);text-align:center;}
+  .grande{font-size:40px;text-align:center;margin:8px 0;}
+  .fila{background:#FDF6E0;border:1px solid #EADFAE;border-radius:12px;padding:12px;font-size:14px;margin-top:12px;}
+</style>
+</head>
+<body>
+<div class="barra">
+  <h1>Protótipo clicável</h1>
+  <p>Plataforma para escritórios de contabilidade em Angola. Toca nos cartões e nos botões para navegar. Contas e valores são ilustrativos.</p>
+  <div class="troca">
+    <button id="tab-esc" class="on" onclick="lado('esc')">Lado do Escritório</button>
+    <button id="tab-emp" onclick="lado('emp')">Lado da Empresa</button>
+  </div>
+</div>
+
+<div class="tel" id="tel-esc">
+  <!-- ESCRITÓRIO: HOJE -->
+  <div class="ecra on" id="e-hoje">
+    <div class="topo-ecra"><div class="avatar">EC</div><div><div class="nome">Escritório Exemplo</div><div class="sub">Terça-feira, 18 de novembro</div></div></div>
+    <h2 class="tit">Tarefas de hoje</h2>
+    <div class="cartao" onclick="vai('e-rever')"><div class="linha1"><span class="t">Documentos por rever</span><span class="badge">3</span></div><div class="d">Loja Kiala · o mais antigo espera há 2 dias</div></div>
+    <div class="cartao" onclick="vai('e-perfil')"><div class="linha1"><span class="t">Mês por fechar</span><span class="badge azul">1</span></div><div class="d">Padaria Horizonte · outubro</div></div>
+    <div class="cartao" onclick="vai('e-perfil')"><div class="linha1"><span class="t">Documentos em falta</span><span class="badge azul">2</span></div><div class="d">Loja Kiala · detetados pelo SAF-T de vendas</div></div>
+    <div class="cartao"><div class="linha1"><span class="t">Tudo tratado</span><span class="badge verde">✓</span></div><div class="d">Oficina Girassol · novembro em dia</div></div>
+  </div>
+  <!-- ESCRITÓRIO: EMPRESAS -->
+  <div class="ecra" id="e-empresas">
+    <h2 class="tit">Empresas</h2>
+    <div class="cartao" onclick="vai('e-perfil')"><div class="linha1"><span class="t">Loja Kiala</span><span class="badge">3</span></div><div class="d">Comércio Geral · NIF 5005554443 · regime geral</div></div>
+    <div class="cartao" onclick="vai('e-perfil')"><div class="linha1"><span class="t">Padaria Horizonte, Lda</span><span class="badge azul">1</span></div><div class="d">NIF 5001234567 · mês de outubro por fechar</div></div>
+    <div class="cartao"><div class="linha1"><span class="t">Oficina Girassol, Lda</span><span class="badge verde">✓</span></div><div class="d">NIF 5007654321 · em dia</div></div>
+    <button class="btn sec">+ Registar nova empresa</button>
+  </div>
+  <!-- ESCRITÓRIO: PERFIL -->
+  <div class="ecra" id="e-perfil">
+    <button class="voltar" onclick="vai('e-empresas')">‹ Empresas</button>
+    <div class="topo-ecra"><div class="avatar">LK</div><div><div class="nome">Loja Kiala</div><div class="sub">NIF 5005554443 · regime geral · novembro</div></div></div>
+    <div class="passos">
+      <div class="passo feito"><div class="bola">✓</div>Receber</div>
+      <div class="passo atual"><div class="bola">2</div>Tratar</div>
+      <div class="passo"><div class="bola">3</div>Rever</div>
+      <div class="passo"><div class="bola">4</div>Fechar</div>
+    </div>
+    <div class="cartao" onclick="vai('e-rever')"><div class="linha1"><span class="t">A seguir: rever 3 documentos</span><span class="badge">3</span></div><div class="d">A IA já classificou. Só falta a tua validação.</div></div>
+    <div class="cartao"><div class="t">Documentos em falta: 2</div><div class="d">O SAF-T de vendas mostra 2 faturas que a empresa ainda não enviou. Pedido automático pronto a enviar.</div></div>
+    <div class="cartao" onclick="vai('e-arquivo')"><div class="t">Arquivo da empresa</div><div class="d">Pesquisar por valor, data, NIF ou conteúdo</div></div>
+  </div>
+  <!-- ESCRITÓRIO: REVER DOCUMENTO -->
+  <div class="ecra" id="e-rever">
+    <button class="voltar" onclick="vai('e-perfil')">‹ Loja Kiala</button>
+    <h2 class="tit">Rever documento</h2>
+    <div class="doc-sim">Fatura em papel (foto)<br>FT 2026/0201 · Papelaria Central, Lda</div>
+    <div class="kv"><span>Emitente</span><span>Papelaria Central, Lda</span></div>
+    <div class="kv"><span>NIF</span><span>5003332221</span></div>
+    <div class="kv"><span>Data</span><span>03/11/2026</span></div>
+    <div class="kv"><span>Base</span><span>85.000,00 Kz</span></div>
+    <div class="kv"><span>IVA (14%)</span><span>11.900,00 Kz</span></div>
+    <div class="kv"><span>Total</span><span>96.900,00 Kz</span></div>
+    <div class="sugestao"><div class="t">Sugestão: Material de escritório</div><div class="d">Regra aprendida: já classificaste 4 documentos da Papelaria Central nesta conta, e as linhas dizem «Papel A4 e consumíveis».</div></div>
+    <button class="btn pri" onclick="vai('e-perfil')">Confirmar</button>
+    <button class="btn sec" onclick="vai('e-classif')">Corrigir a classificação</button>
+  </div>
+  <!-- ESCRITÓRIO: CLASSIFICAÇÃO -->
+  <div class="ecra" id="e-classif">
+    <button class="voltar" onclick="vai('e-rever')">‹ Rever documento</button>
+    <h2 class="tit">Escolher a conta</h2>
+    <input class="pesquisa" placeholder="Pesquisar conta do PGC...">
+    <div class="conta" onclick="vai('e-rever')"><span>Compras de mercadorias</span><span>›</span></div>
+    <div class="conta" onclick="vai('e-rever')"><span>Material de escritório</span><span>›</span></div>
+    <div class="conta" onclick="vai('e-rever')"><span>Combustíveis</span><span>›</span></div>
+    <div class="conta" onclick="vai('e-rever')"><span>Rendas e alugueres</span><span>›</span></div>
+    <div class="conta" onclick="vai('e-rever')"><span>Comunicações</span><span>›</span></div>
+    <div class="conta" onclick="vai('e-rever')"><span>Outros fornecimentos e serviços</span><span>›</span></div>
+    <p style="font-size:13px;color:var(--suave)">Ao corrigires, a regra fica aprendida para os próximos documentos deste fornecedor.</p>
+  </div>
+  <!-- ESCRITÓRIO: ARQUIVO -->
+  <div class="ecra" id="e-arquivo">
+    <button class="voltar" onclick="vai('e-perfil')">‹ Loja Kiala</button>
+    <h2 class="tit">Arquivo</h2>
+    <input class="pesquisa" placeholder="Valor, data, NIF, fornecedor, produto...">
+    <div class="cartao" onclick="vai('e-rever')"><div class="linha1"><span class="t">Papelaria Central, Lda</span><span>96.900 Kz</span></div><div class="d">FT 2026/0201 · 03/11/2026 · linha encontrada: «Papel A4»</div></div>
+    <div class="cartao"><div class="linha1"><span class="t">Grossista Alimentar Kwanza</span><span>1.254.000 Kz</span></div><div class="d">FT 2026/0450 · 13/11/2026 · mercadoria</div></div>
+    <div class="cartao"><div class="linha1"><span class="t">Imobiliária Vista Alegre</span><span>205.200 Kz</span></div><div class="d">FR 2026/0105 · 05/11/2026 · renda</div></div>
+  </div>
+  <div class="nav">
+    <button class="on" data-nav onclick="vai('e-hoje')"><span class="ico">⌂</span>Hoje</button>
+    <button data-nav onclick="vai('e-empresas')"><span class="ico">▦</span>Empresas</button>
+    <button data-nav onclick="vai('e-arquivo')"><span class="ico">⌕</span>Arquivo</button>
+    <button data-nav onclick="vai('e-hoje')"><span class="ico">☰</span>Menu</button>
+  </div>
+</div>
+
+<div class="tel" id="tel-emp" style="display:none">
+  <!-- EMPRESA: INÍCIO -->
+  <div class="ecra on" id="c-inicio">
+    <div class="topo-ecra"><div class="avatar cinza">LK</div><div><div class="nome">Olá, Loja Kiala</div><div class="sub">A tua contabilidade, sem complicações</div></div></div>
+    <div class="cartao"><div class="t">Novembro está quase fechado</div><div class="d">Recebemos 12 documentos. O escritório já tratou 9. Faltam 2 que ainda não enviaste.</div></div>
+    <button class="btn pri" onclick="vai('c-enviar')">Enviar documentos</button>
+    <div class="cartao" style="margin-top:12px" onclick="vai('c-mes')"><div class="t">O meu mês</div><div class="d">Vê em que ponto está a tua contabilidade</div></div>
+  </div>
+  <!-- EMPRESA: ENVIAR -->
+  <div class="ecra" id="c-enviar">
+    <h2 class="tit">Enviar documentos</h2>
+    <div class="grande">📄</div>
+    <button class="btn pri">Tirar uma foto</button>
+    <button class="btn sec">Escolher um ficheiro</button>
+    <div class="fila"><b>Sem internet?</b> Sem problema. O documento fica guardado no telefone e é enviado sozinho quando a rede voltar.<br><br>1 documento por sincronizar</div>
+  </div>
+  <!-- EMPRESA: DOCUMENTOS -->
+  <div class="ecra" id="c-docs">
+    <h2 class="tit">Os meus documentos</h2>
+    <div class="cartao"><div class="linha1"><span class="t">Fatura da Papelaria Central</span><span class="estado e-tra">A ser tratado</span></div><div class="d">Enviada hoje</div></div>
+    <div class="cartao"><div class="linha1"><span class="t">Recibo da renda</span><span class="estado e-ok">Tratado</span></div><div class="d">Enviado a 05/11</div></div>
+    <div class="cartao"><div class="linha1"><span class="t">Fatura do combustível</span><span class="estado e-rec">Recebido</span></div><div class="d">Enviada a 14/11</div></div>
+  </div>
+  <!-- EMPRESA: O MEU MÊS -->
+  <div class="ecra" id="c-mes">
+    <h2 class="tit">O meu mês: novembro</h2>
+    <div class="passos">
+      <div class="passo feito"><div class="bola">✓</div>Enviaste</div>
+      <div class="passo atual"><div class="bola">2</div>O escritório trata</div>
+      <div class="passo"><div class="bola">3</div>Fechado</div>
+    </div>
+    <div class="cartao"><div class="t">Faltam 2 documentos</div><div class="d">O escritório detetou 2 faturas de vendas que ainda não aparecem. Envia-as para o mês fechar.</div></div>
+    <button class="btn pri" onclick="vai('c-enviar')">Enviar agora</button>
+  </div>
+  <div class="nav">
+    <button class="on" data-nav onclick="vai('c-inicio')"><span class="ico">⌂</span>Início</button>
+    <button data-nav onclick="vai('c-enviar')"><span class="ico">＋</span>Enviar</button>
+    <button data-nav onclick="vai('c-docs')"><span class="ico">▦</span>Documentos</button>
+    <button data-nav onclick="vai('c-mes')"><span class="ico">◔</span>O meu mês</button>
+  </div>
+</div>
+<div class="nota">Protótipo de UI/UX para aprovação. Nada aqui é a aplicação real: os dados são de exemplo e servem para validar ecrãs e fluxos antes da construção.</div>
+<script>
+  function lado(l){
+    document.getElementById('tel-esc').style.display = l==='esc' ? 'flex' : 'none';
+    document.getElementById('tel-emp').style.display = l==='emp' ? 'flex' : 'none';
+    document.getElementById('tab-esc').classList.toggle('on', l==='esc');
+    document.getElementById('tab-emp').classList.toggle('on', l==='emp');
+  }
+  function vai(id){
+    var tel = document.getElementById(id).closest('.tel');
+    tel.querySelectorAll('.ecra').forEach(function(e){ e.classList.toggle('on', e.id===id); });
+    window.scrollTo({top:0});
+  }
+</script>
+</body>
+</html>
