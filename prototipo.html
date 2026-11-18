@@ -55,7 +55,10 @@
   .nav{position:sticky;bottom:0;background:#fff;border-top:1px solid var(--linha);display:flex;padding:10px 4px calc(10px + env(safe-area-inset-bottom));}
   .nav button{flex:1;background:none;border:0;color:var(--suave);cursor:pointer;padding:8px 2px;}
   .nav button.on{color:var(--azul);}
-  .nav .ico{display:block;font-size:25px;line-height:1;}
+  .nav button svg{width:26px;height:26px;fill:none;stroke:var(--suave);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;display:block;margin:0 auto;}
+  .nav button.on svg{stroke:var(--azul);stroke-width:2.1;}
+  .nav button svg .pre{fill:none;}
+  .nav button.on svg .pre{fill:var(--azul);}
   .grade{display:grid;gap:11px;}
   .grade .cartao{margin-bottom:0;}
   @media (min-width:700px){
@@ -164,10 +167,10 @@
     </div>
   </div>
   <div class="nav">
-    <button class="on" data-nav onclick="vai('e-hoje')" title="Hoje" aria-label="Hoje"><span class="ico">⌂</span></button>
-    <button data-nav onclick="vai('e-empresas')" title="Empresas" aria-label="Empresas"><span class="ico">▦</span></button>
-    <button data-nav onclick="vai('e-arquivo')" title="Arquivo" aria-label="Arquivo"><span class="ico">⌕</span></button>
-    <button data-nav onclick="vai('e-hoje')" title="Menu" aria-label="Menu"><span class="ico">☰</span></button>
+    <button class="on" data-nav onclick="vai('e-hoje')" title="Hoje" aria-label="Hoje"><svg viewBox="0 0 24 24"><path class="pre" d="M12 3l9 8h-3v9a1 1 0 0 1-1 1h-3.5v-6h-3v6H7a1 1 0 0 1-1-1v-9H3z"/></svg></button>
+    <button data-nav onclick="vai('e-empresas')" title="Empresas" aria-label="Empresas"><svg viewBox="0 0 24 24"><rect class="pre" x="4" y="4" width="7" height="7" rx="1.6"/><rect class="pre" x="13" y="4" width="7" height="7" rx="1.6"/><rect class="pre" x="4" y="13" width="7" height="7" rx="1.6"/><rect class="pre" x="13" y="13" width="7" height="7" rx="1.6"/></svg></button>
+    <button data-nav onclick="vai('e-arquivo')" title="Arquivo" aria-label="Arquivo"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M15.8 15.8 20.5 20.5"/></svg></button>
+    <button data-nav onclick="vai('e-hoje')" title="Menu" aria-label="Menu"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
   </div>
 </div>
 
@@ -208,10 +211,10 @@
     <button class="btn pri" onclick="vai('c-enviar')">Enviar agora</button>
   </div>
   <div class="nav">
-    <button class="on" data-nav onclick="vai('c-inicio')" title="Início" aria-label="Início"><span class="ico">⌂</span></button>
-    <button data-nav onclick="vai('c-enviar')" title="Enviar" aria-label="Enviar"><span class="ico">＋</span></button>
-    <button data-nav onclick="vai('c-docs')" title="Documentos" aria-label="Documentos"><span class="ico">▦</span></button>
-    <button data-nav onclick="vai('c-mes')" title="O meu mês" aria-label="O meu mês"><span class="ico">◔</span></button>
+    <button class="on" data-nav onclick="vai('c-inicio')" title="Início" aria-label="Início"><svg viewBox="0 0 24 24"><path class="pre" d="M12 3l9 8h-3v9a1 1 0 0 1-1 1h-3.5v-6h-3v6H7a1 1 0 0 1-1-1v-9H3z"/></svg></button>
+    <button data-nav onclick="vai('c-enviar')" title="Enviar" aria-label="Enviar"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+    <button data-nav onclick="vai('c-docs')" title="Documentos" aria-label="Documentos"><svg viewBox="0 0 24 24"><rect class="pre" x="4" y="4" width="7" height="7" rx="1.6"/><rect class="pre" x="13" y="4" width="7" height="7" rx="1.6"/><rect class="pre" x="4" y="13" width="7" height="7" rx="1.6"/><rect class="pre" x="13" y="13" width="7" height="7" rx="1.6"/></svg></button>
+    <button data-nav onclick="vai('c-mes')" title="O meu mês" aria-label="O meu mês"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5V12h8.5"/><path class="pre" d="M12 3.5a8.5 8.5 0 0 1 8.5 8.5H12z"/></svg></button>
   </div>
 </div>
 <div class="nota">Protótipo de UI/UX para aprovação. Nada aqui é a aplicação real: os dados são de exemplo e servem para validar ecrãs e fluxos antes da construção.</div>

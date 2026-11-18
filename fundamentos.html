@@ -60,12 +60,17 @@
   .pesquisa{width:100%;border:1px solid var(--linha);border-radius:12px;padding:13px;font-size:15.5px;margin-bottom:11px;}
   .avatar{width:42px;height:42px;border-radius:50%;background:var(--azul);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;}
   .navdemo{border:1px solid var(--linha);border-radius:14px;display:flex;padding:10px 4px;background:#fff;max-width:430px;}
-  .navdemo div{flex:1;text-align:center;font-size:25px;color:var(--suave);}
-  .navdemo div.on{color:var(--azul);}
+  .navdemo div{flex:1;text-align:center;}
+  .navdemo div svg{width:26px;height:26px;fill:none;stroke:var(--suave);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+  .navdemo div svg .pre{fill:none;}
+  .navdemo div.on svg{stroke:var(--azul);stroke-width:2.1;}
+  .navdemo div.on svg .pre{fill:var(--azul);}
   table{width:100%;border-collapse:collapse;font-size:14.5px;}
   th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--linha);vertical-align:top;}
   th{color:var(--escuro);}
-  .icone-celula{font-size:26px;color:var(--azul);text-align:center;width:56px;}
+  .icone-celula{text-align:center;width:56px;}
+  .icone-celula svg{width:30px;height:30px;fill:none;stroke:var(--azul);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+  .icone-celula svg .pre{fill:var(--azul);}
   .vazio{border:1px dashed #B9C2D8;border-radius:14px;padding:20px;text-align:center;}
   .vazio .t{font-weight:700;margin-top:8px;}
   .vazio .d{font-size:13.5px;color:var(--suave);margin-top:3px;}
@@ -173,8 +178,8 @@
       <div class="kv"><span>Estado</span><span><span class="estado e-rec">Recebido</span> <span class="estado e-tra">A ser tratado</span> <span class="estado e-ok">Tratado</span></span></div>
       <input class="pesquisa" placeholder="Campo de pesquisa...">
       <div style="margin-bottom:11px"><span class="avatar">LK</span> <span style="font-size:14.5px;color:var(--suave)">Avatar com as iniciais da empresa</span></div>
-      <div class="navdemo"><div class="on">⌂</div><div>▦</div><div>⌕</div><div>☰</div></div>
-      <p class="nota">Barra de navegação inferior: só ícones, sem texto (regra definida na revisão do protótipo).</p>
+      <div class="navdemo"><div class="on"><svg viewBox="0 0 24 24"><path class="pre" d="M12 3l9 8h-3v9a1 1 0 0 1-1 1h-3.5v-6h-3v6H7a1 1 0 0 1-1-1v-9H3z"/></svg></div><div><svg viewBox="0 0 24 24"><rect class="pre" x="4" y="4" width="7" height="7" rx="1.6"/><rect class="pre" x="13" y="4" width="7" height="7" rx="1.6"/><rect class="pre" x="4" y="13" width="7" height="7" rx="1.6"/><rect class="pre" x="13" y="13" width="7" height="7" rx="1.6"/></svg></div><div><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M15.8 15.8 20.5 20.5"/></svg></div><div><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></div></div>
+      <p class="nota">Barra de navegação inferior: só ícones, sem texto, no estilo de contorno da aplicação do Facebook (regra definida na revisão do protótipo).</p>
     </div>
   </section>
 
@@ -183,15 +188,15 @@
     <p class="intro">Poucos, sempre os mesmos, cada um com um único significado. Na barra de navegação aparecem sem texto; o nome acessível acompanha sempre o ícone para leitores de ecrã.</p>
     <table>
       <tr><th></th><th>Significado</th><th>Onde se usa</th></tr>
-      <tr><td class="icone-celula">⌂</td><td>Início / Hoje</td><td>Primeiro botão das duas barras de navegação</td></tr>
-      <tr><td class="icone-celula">▦</td><td>Lista / Empresas / Documentos</td><td>Listas e grelhas de itens</td></tr>
-      <tr><td class="icone-celula">⌕</td><td>Pesquisar / Arquivo</td><td>Arquivo e pesquisa</td></tr>
-      <tr><td class="icone-celula">☰</td><td>Menu</td><td>Menu principal do escritório</td></tr>
-      <tr><td class="icone-celula">＋</td><td>Enviar / Adicionar</td><td>Ação principal do lado da empresa</td></tr>
-      <tr><td class="icone-celula">◔</td><td>O meu mês / Progresso</td><td>Progresso do mês da empresa</td></tr>
-      <tr><td class="icone-celula">✓</td><td>Feito / Confirmado</td><td>Passos concluídos e confirmações</td></tr>
+      <tr><td class="icone-celula"><svg viewBox="0 0 24 24"><path class="pre" d="M12 3l9 8h-3v9a1 1 0 0 1-1 1h-3.5v-6h-3v6H7a1 1 0 0 1-1-1v-9H3z"/></svg></td><td>Início / Hoje</td><td>Primeiro botão das duas barras de navegação</td></tr>
+      <tr><td class="icone-celula"><svg viewBox="0 0 24 24"><rect class="pre" x="4" y="4" width="7" height="7" rx="1.6"/><rect class="pre" x="13" y="4" width="7" height="7" rx="1.6"/><rect class="pre" x="4" y="13" width="7" height="7" rx="1.6"/><rect class="pre" x="13" y="13" width="7" height="7" rx="1.6"/></svg></td><td>Lista / Empresas / Documentos</td><td>Listas e grelhas de itens</td></tr>
+      <tr><td class="icone-celula"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M15.8 15.8 20.5 20.5"/></svg></td><td>Pesquisar / Arquivo</td><td>Arquivo e pesquisa</td></tr>
+      <tr><td class="icone-celula"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></td><td>Menu</td><td>Menu principal do escritório</td></tr>
+      <tr><td class="icone-celula"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></td><td>Enviar / Adicionar</td><td>Ação principal do lado da empresa</td></tr>
+      <tr><td class="icone-celula"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5V12h8.5"/><path class="pre" d="M12 3.5a8.5 8.5 0 0 1 8.5 8.5H12z"/></svg></td><td>O meu mês / Progresso</td><td>Progresso do mês da empresa</td></tr>
+      <tr><td class="icone-celula"><svg viewBox="0 0 24 24"><path d="M4.5 12.5 10 18 19.5 6.5"/></svg></td><td>Feito / Confirmado</td><td>Passos concluídos e confirmações</td></tr>
     </table>
-    <p class="nota">No protótipo os ícones são glifos de texto. No produto final passa a existir um conjunto vetorial único (SVG), com o mesmo significado e o mesmo tamanho: 25 px na barra de navegação.</p>
+    <p class="nota">Estilo adotado: o estilo dos ícones da aplicação do Facebook, contorno fino e arredondado, cinzento quando inativo e azul cheio quando ativo. Os ícones são desenhados por nós nesse estilo, em vetor (SVG), 26 px na barra de navegação; não se usam ficheiros nem símbolos do Facebook.</p>
   </section>
 
   <section>
