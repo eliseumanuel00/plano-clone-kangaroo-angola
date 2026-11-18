@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fundamentos visuais — Plataforma para Escritórios de Contabilidade (Angola)</title>
+<style>
+  :root{--azul:#1346AF;--escuro:#0D2F75;--fundo:#EEF1F8;--cartao:#fff;--texto:#1C2333;--suave:#5A6478;--linha:#E2E6F0;--verde:#0E7A4F;--vermelho:#D43A2F;--ambar:#9A6B00;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--fundo);color:var(--texto);}
+  .wrap{max-width:1040px;margin:0 auto;padding:26px 18px 60px;}
+  header.topo{margin-bottom:8px;}
+  header.topo h1{font-size:28px;color:var(--escuro);}
+  header.topo p{color:var(--suave);margin-top:6px;font-size:15.5px;max-width:720px;}
+  .links{margin:14px 0 6px;display:flex;gap:9px;flex-wrap:wrap;}
+  .links a{background:#fff;border:1px solid var(--linha);color:var(--azul);font-weight:700;text-decoration:none;padding:9px 14px;border-radius:12px;font-size:14.5px;}
+  section{background:#fff;border:1px solid var(--linha);border-radius:16px;padding:22px;margin-top:18px;}
+  section h2{font-size:21px;color:var(--escuro);margin-bottom:6px;}
+  section .intro{color:var(--suave);font-size:14.5px;margin-bottom:16px;max-width:760px;}
+  .grelha{display:grid;gap:12px;grid-template-columns:1fr;}
+  @media(min-width:700px){.grelha{grid-template-columns:1fr 1fr;}}
+  @media(min-width:1000px){.grelha.c3{grid-template-columns:repeat(3,1fr);}}
+  .principio{border:1px solid var(--linha);border-radius:14px;padding:15px;}
+  .principio .t{font-weight:700;font-size:16px;margin-bottom:4px;}
+  .principio .d{font-size:14px;color:var(--suave);}
+  .amostra{border:1px solid var(--linha);border-radius:14px;overflow:hidden;}
+  .amostra .cor{height:64px;}
+  .amostra .info{padding:11px 13px;}
+  .amostra .nome{font-weight:700;font-size:15px;}
+  .amostra .hex{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px;color:var(--suave);}
+  .amostra .uso{font-size:13.5px;color:var(--suave);margin-top:3px;}
+  .tipo-linha{border-bottom:1px solid var(--linha);padding:11px 0;display:flex;justify-content:space-between;gap:14px;align-items:baseline;}
+  .tipo-linha:last-child{border-bottom:0;}
+  .tipo-linha .med{font-size:13px;color:var(--suave);white-space:nowrap;}
+  .btn{display:block;width:100%;border:0;border-radius:12px;padding:15px;font-size:16px;font-weight:700;cursor:pointer;text-align:center;margin-bottom:9px;}
+  .btn.pri{background:var(--azul);color:#fff;}
+  .btn.sec{background:var(--fundo);color:var(--azul);border:1px solid var(--linha);}
+  .btn.des{background:#E8EBF2;color:#9AA3B5;cursor:not-allowed;}
+  .demo{max-width:430px;}
+  .cartao{border:1px solid var(--linha);border-radius:14px;padding:14px;margin-bottom:11px;background:#fff;}
+  .cartao .linha1{display:flex;justify-content:space-between;align-items:center;gap:8px;}
+  .cartao .t{font-weight:700;font-size:15.5px;}
+  .cartao .d{font-size:13.5px;color:var(--suave);margin-top:3px;}
+  .badge{background:var(--vermelho);color:#fff;font-size:12px;font-weight:700;min-width:22px;height:22px;border-radius:11px;display:inline-flex;align-items:center;justify-content:center;padding:0 6px;}
+  .badge.azul{background:var(--azul);} .badge.verde{background:var(--verde);}
+  .passos{display:flex;gap:6px;margin:4px 0 14px;}
+  .passo{flex:1;text-align:center;font-size:12px;color:var(--suave);}
+  .passo .bola{width:30px;height:30px;border-radius:50%;border:2px solid var(--linha);margin:0 auto 4px;display:flex;align-items:center;justify-content:center;font-weight:700;background:#fff;}
+  .passo.feito .bola{background:var(--verde);border-color:var(--verde);color:#fff;}
+  .passo.atual .bola{border-color:var(--azul);color:var(--azul);}
+  .passo.atual{color:var(--azul);font-weight:700;}
+  .sugestao{background:#EAF3EE;border:1px solid #BFE3D2;border-radius:12px;padding:13px;margin-bottom:11px;}
+  .sugestao .t{font-weight:700;color:var(--verde);}
+  .sugestao .d{font-size:13.5px;margin-top:3px;}
+  .kv{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--linha);font-size:15px;}
+  .kv span:first-child{color:var(--suave);}
+  .kv span:last-child{font-weight:600;}
+  .estado{font-size:12.5px;font-weight:700;padding:3px 9px;border-radius:12px;}
+  .e-rec{background:#E6ECFA;color:var(--azul);} .e-tra{background:#FDF6E0;color:var(--ambar);} .e-ok{background:#E3F2EA;color:var(--verde);}
+  .pesquisa{width:100%;border:1px solid var(--linha);border-radius:12px;padding:13px;font-size:15.5px;margin-bottom:11px;}
+  .avatar{width:42px;height:42px;border-radius:50%;background:var(--azul);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;}
+  .navdemo{border:1px solid var(--linha);border-radius:14px;display:flex;padding:10px 4px;background:#fff;max-width:430px;}
+  .navdemo div{flex:1;text-align:center;font-size:25px;color:var(--suave);}
+  .navdemo div.on{color:var(--azul);}
+  table{width:100%;border-collapse:collapse;font-size:14.5px;}
+  th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--linha);vertical-align:top;}
+  th{color:var(--escuro);}
+  .icone-celula{font-size:26px;color:var(--azul);text-align:center;width:56px;}
+  .vazio{border:1px dashed #B9C2D8;border-radius:14px;padding:20px;text-align:center;}
+  .vazio .t{font-weight:700;margin-top:8px;}
+  .vazio .d{font-size:13.5px;color:var(--suave);margin-top:3px;}
+  ul.regras{margin:0 0 0 18px;font-size:14.5px;}
+  ul.regras li{margin-bottom:6px;}
+  .nota{font-size:13px;color:var(--suave);margin-top:12px;}
+  footer{color:var(--suave);font-size:13px;text-align:center;margin-top:22px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="topo">
+    <h1>Fundamentos visuais</h1>
+    <p>O sistema de desenho da plataforma: cores, tipografia, grelha, componentes, botões, ícones e ilustrações. Tudo o que for construído, do protótipo ao produto final, segue esta página.</p>
+    <div class="links">
+      <a href="index.html">O plano completo</a>
+      <a href="prototipo.html">O protótipo clicável</a>
+    </div>
+  </header>
+
+  <section>
+    <h2>Princípios</h2>
+    <p class="intro">Três regras mandam em todas as decisões de desenho.</p>
+    <div class="grelha c3">
+      <div class="principio"><div class="t">Um ecrã, uma tarefa</div><div class="d">Cada ecrã tem um objetivo e um botão principal. O resto é secundário ou sai.</div></div>
+      <div class="principio"><div class="t">Linguagem simples</div><div class="d">No lado da empresa, nada de termos de contabilidade: «a ser tratado» em vez de «em processamento contabilístico».</div></div>
+      <div class="principio"><div class="t">O contabilista decide</div><div class="d">A IA sugere e explica o motivo; quem confirma é sempre a pessoa. O desenho mostra isso: sugestão destacada, confirmação a um toque.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Cores</h2>
+    <p class="intro">Uma cor principal, três cores de estado e neutros. A cor nunca é o único sinal: cada estado leva também texto ou ícone.</p>
+    <div class="grelha c3">
+      <div class="amostra"><div class="cor" style="background:#1346AF"></div><div class="info"><div class="nome">Azul principal</div><div class="hex">#1346AF</div><div class="uso">Botões principais, navegação ativa, ligações</div></div></div>
+      <div class="amostra"><div class="cor" style="background:#0D2F75"></div><div class="info"><div class="nome">Azul escuro</div><div class="hex">#0D2F75</div><div class="uso">Títulos e cabeçalhos</div></div></div>
+      <div class="amostra"><div class="cor" style="background:#EEF1F8"></div><div class="info"><div class="nome">Fundo</div><div class="hex">#EEF1F8</div><div class="uso">Fundo das páginas</div></div></div>
+      <div class="amostra"><div class="cor" style="background:#FFFFFF;border-bottom:1px solid var(--linha)"></div><div class="info"><div class="nome">Cartão</div><div class="hex">#FFFFFF</div><div class="uso">Superfície dos cartões e painéis</div></div></div>
+      <div class="amostra"><div class="cor" style="background:#1C2333"></div><div class="info"><div class="nome">Texto</div><div class="hex">#1C2333</div><div class="uso">Texto principal</div></div></div>
+      <div class="amostra"><div class="cor" style="background:#5A6478"></div><div class="info"><div class="nome">Texto suave</div><div class="hex">#5A6478</div><div class="uso">Texto secundário e descrições</div></div></div>
+      <div class="amostra"><div class="cor" style="background:#0E7A4F"></div><div class="info"><div class="nome">Verde</div><div class="hex">#0E7A4F</div><div class="uso">Sucesso, confirmado, tratado, sugestão da IA</div></div></div>
+      <div class="amostra"><div class="cor" style="background:#D43A2F"></div><div class="info"><div class="nome">Vermelho</div><div class="hex">#D43A2F</div><div class="uso">Urgente, erro, contadores por tratar</div></div></div>
+      <div class="amostra"><div class="cor" style="background:#9A6B00"></div><div class="info"><div class="nome">Âmbar</div><div class="hex">#9A6B00</div><div class="uso">Aviso, em curso, a ser tratado</div></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Tipografia</h2>
+    <p class="intro">Fonte do sistema de cada aparelho (San Francisco, Segoe UI, Roboto): rápida, não precisa de rede e é igual para todos. Sem fontes descarregadas.</p>
+    <div class="tipo-linha"><span style="font-size:20px;font-weight:700">Título do ecrã</span><span class="med">20 px · negrito</span></div>
+    <div class="tipo-linha"><span style="font-size:16.5px;font-weight:700">Nome e subtítulos</span><span class="med">16,5 px · negrito</span></div>
+    <div class="tipo-linha"><span style="font-size:15.5px;font-weight:700">Título do cartão</span><span class="med">15,5 px · negrito</span></div>
+    <div class="tipo-linha"><span style="font-size:15px">Texto principal</span><span class="med">15 px · normal</span></div>
+    <div class="tipo-linha"><span style="font-size:13.5px;color:var(--suave)">Texto secundário e descrições</span><span class="med">13,5 px · suave</span></div>
+    <div class="tipo-linha"><span style="font-size:12.5px;font-weight:700">Rótulos de estado</span><span class="med">12,5 px · negrito</span></div>
+    <p class="nota">Nada abaixo de 12,5 px. Valores monetários sempre com separador de milhares e «Kz».</p>
+  </section>
+
+  <section>
+    <h2>Grelha e espaçamento</h2>
+    <p class="intro">Responsivo desde o protótipo: a mesma página adapta-se ao aparelho, sem versões separadas.</p>
+    <table>
+      <tr><th>Aparelho</th><th>Largura</th><th>Listas de cartões</th><th>Largura máxima do conteúdo</th></tr>
+      <tr><td>Telemóvel</td><td>menos de 700 px</td><td>1 coluna</td><td>430 px</td></tr>
+      <tr><td>Tablet</td><td>700 a 1099 px</td><td>2 colunas</td><td>760 px</td></tr>
+      <tr><td>Computador</td><td>1100 px ou mais</td><td>3 colunas</td><td>1040 px</td></tr>
+    </table>
+    <ul class="regras" style="margin-top:14px">
+      <li>Escala de espaçamentos: 4 · 8 · 11 · 14 · 16 · 22 px. Nada fora da escala.</li>
+      <li>Cantos arredondados: 12 px em botões e campos, 14 px em cartões, 22 px na moldura principal.</li>
+      <li>Alvos de toque com pelo menos 44 px de altura, para dedos e telemóveis simples.</li>
+      <li>Margem lateral de 16 px no telemóvel e 22 px em ecrãs maiores.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Botões</h2>
+    <p class="intro">Um botão principal por ecrã. O texto do botão diz a ação: «Confirmar», «Enviar agora», nunca «OK».</p>
+    <div class="demo">
+      <button class="btn pri">Confirmar (principal)</button>
+      <button class="btn sec">Corrigir a classificação (secundário)</button>
+      <button class="btn des">A sincronizar... (desativado)</button>
+    </div>
+    <ul class="regras">
+      <li>Principal: azul, um por ecrã, largura total no telemóvel.</li>
+      <li>Secundário: fundo claro com contorno, para a alternativa.</li>
+      <li>Desativado: cinzento, quando a ação ainda não é possível; o motivo aparece em texto ao lado.</li>
+      <li>Ações destrutivas pedem sempre confirmação escrita antes de executar.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Componentes</h2>
+    <p class="intro">As peças que se repetem em todos os ecrãs. Exemplos vivos, iguais aos do protótipo.</p>
+    <div class="demo">
+      <div class="cartao"><div class="linha1"><span class="t">Documentos por rever</span><span class="badge">3</span></div><div class="d">Cartão de tarefa com contador</div></div>
+      <div class="passos">
+        <div class="passo feito"><div class="bola">✓</div>Receber</div>
+        <div class="passo atual"><div class="bola">2</div>Tratar</div>
+        <div class="passo"><div class="bola">3</div>Rever</div>
+        <div class="passo"><div class="bola">4</div>Fechar</div>
+      </div>
+      <div class="sugestao"><div class="t">Sugestão da IA</div><div class="d">Bloco verde com a classificação proposta e o motivo explicado.</div></div>
+      <div class="kv"><span>Emitente</span><span>Linha chave e valor</span></div>
+      <div class="kv"><span>Estado</span><span><span class="estado e-rec">Recebido</span> <span class="estado e-tra">A ser tratado</span> <span class="estado e-ok">Tratado</span></span></div>
+      <input class="pesquisa" placeholder="Campo de pesquisa...">
+      <div style="margin-bottom:11px"><span class="avatar">LK</span> <span style="font-size:14.5px;color:var(--suave)">Avatar com as iniciais da empresa</span></div>
+      <div class="navdemo"><div class="on">⌂</div><div>▦</div><div>⌕</div><div>☰</div></div>
+      <p class="nota">Barra de navegação inferior: só ícones, sem texto (regra definida na revisão do protótipo).</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Ícones</h2>
+    <p class="intro">Poucos, sempre os mesmos, cada um com um único significado. Na barra de navegação aparecem sem texto; o nome acessível acompanha sempre o ícone para leitores de ecrã.</p>
+    <table>
+      <tr><th></th><th>Significado</th><th>Onde se usa</th></tr>
+      <tr><td class="icone-celula">⌂</td><td>Início / Hoje</td><td>Primeiro botão das duas barras de navegação</td></tr>
+      <tr><td class="icone-celula">▦</td><td>Lista / Empresas / Documentos</td><td>Listas e grelhas de itens</td></tr>
+      <tr><td class="icone-celula">⌕</td><td>Pesquisar / Arquivo</td><td>Arquivo e pesquisa</td></tr>
+      <tr><td class="icone-celula">☰</td><td>Menu</td><td>Menu principal do escritório</td></tr>
+      <tr><td class="icone-celula">＋</td><td>Enviar / Adicionar</td><td>Ação principal do lado da empresa</td></tr>
+      <tr><td class="icone-celula">◔</td><td>O meu mês / Progresso</td><td>Progresso do mês da empresa</td></tr>
+      <tr><td class="icone-celula">✓</td><td>Feito / Confirmado</td><td>Passos concluídos e confirmações</td></tr>
+    </table>
+    <p class="nota">No protótipo os ícones são glifos de texto. No produto final passa a existir um conjunto vetorial único (SVG), com o mesmo significado e o mesmo tamanho: 25 px na barra de navegação.</p>
+  </section>
+
+  <section>
+    <h2>Ilustrações</h2>
+    <p class="intro">Ilustração simples e geométrica, só nas cores da paleta, apenas onde ajuda: estados vazios, boas-vindas e momentos de sucesso. Nunca em ecrãs de trabalho, nunca fotografias de arquivo genéricas.</p>
+    <div class="grelha c3">
+      <div class="vazio">
+        <svg width="72" height="72" viewBox="0 0 72 72"><rect x="18" y="8" width="36" height="48" rx="5" fill="none" stroke="#1346AF" stroke-width="3"/><line x1="26" y1="22" x2="46" y2="22" stroke="#5A6478" stroke-width="3" stroke-linecap="round"/><line x1="26" y1="32" x2="46" y2="32" stroke="#5A6478" stroke-width="3" stroke-linecap="round"/><line x1="26" y1="42" x2="38" y2="42" stroke="#5A6478" stroke-width="3" stroke-linecap="round"/><circle cx="50" cy="52" r="11" fill="#0E7A4F"/><path d="M45 52 l4 4 l7 -8" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
+        <div class="t">Documento tratado</div><div class="d">Sucesso e confirmações</div>
+      </div>
+      <div class="vazio">
+        <svg width="72" height="72" viewBox="0 0 72 72"><path d="M10 30 h16 l5 8 h10 l5 -8 h16 v24 a4 4 0 0 1 -4 4 H14 a4 4 0 0 1 -4 -4 z" fill="none" stroke="#1346AF" stroke-width="3" stroke-linejoin="round"/><line x1="26" y1="47" x2="46" y2="47" stroke="#5A6478" stroke-width="3" stroke-linecap="round"/></svg>
+        <div class="t">Caixa vazia</div><div class="d">Estados vazios: «ainda não há documentos»</div>
+      </div>
+      <div class="vazio">
+        <svg width="72" height="72" viewBox="0 0 72 72"><line x1="14" y1="58" x2="60" y2="58" stroke="#5A6478" stroke-width="3" stroke-linecap="round"/><rect x="18" y="38" width="9" height="20" rx="2" fill="#1346AF"/><rect x="32" y="28" width="9" height="30" rx="2" fill="#1346AF"/><rect x="46" y="16" width="9" height="42" rx="2" fill="#0E7A4F"/></svg>
+        <div class="t">Progresso</div><div class="d">Boas-vindas e resumo do mês</div>
+      </div>
+    </div>
+    <ul class="regras" style="margin-top:14px">
+      <li>Traço de 3 px, cantos arredondados, no máximo três cores da paleta por ilustração.</li>
+      <li>Sem pessoas, sem bandeiras, sem símbolos de terceiros.</li>
+      <li>Cada ilustração tem sempre um título e uma frase curta por baixo: a ilustração acompanha, não substitui o texto.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Acessibilidade</h2>
+    <ul class="regras">
+      <li>Contraste do texto principal sobre o fundo acima de 7:1; texto suave nunca abaixo de 4,5:1.</li>
+      <li>Estado nunca comunicado só pela cor: leva sempre texto ou ícone junto.</li>
+      <li>Ícones de navegação com nome acessível, mesmo sem texto visível.</li>
+      <li>Tudo utilizável com uma mão e com leitores de ecrã.</li>
+    </ul>
+  </section>
+
+  <footer>Fundamentos visuais v1 · Plataforma para escritórios de contabilidade em Angola · Aprovados pelo Manuel antes da construção.</footer>
+</div>
+</body>
+</html>
