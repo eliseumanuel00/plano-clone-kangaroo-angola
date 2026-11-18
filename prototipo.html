@@ -33,7 +33,10 @@
   .passos{display:flex;gap:6px;margin:12px 0 16px;}
   .passo{flex:1;text-align:center;font-size:12px;color:var(--suave);}
   .passo .bola{width:30px;height:30px;border-radius:50%;border:2px solid var(--linha);margin:0 auto 4px;display:flex;align-items:center;justify-content:center;font-weight:700;background:#fff;}
-  .passo.feito .bola{background:var(--verde);border-color:var(--verde);color:#fff;}
+  .passo.feito .bola{background:transparent;border-color:transparent;}
+  .passo .bola svg{width:22px;height:22px;stroke:var(--azul);stroke-width:2.4;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+  .visto{display:inline-flex;flex:none;}
+  .visto svg{width:20px;height:20px;stroke:var(--azul);stroke-width:2.4;fill:none;stroke-linecap:round;stroke-linejoin:round;}
   .passo.atual .bola{border-color:var(--azul);color:var(--azul);}
   .passo.atual{color:var(--azul);font-weight:700;}
   .btn{display:block;width:100%;border:0;border-radius:12px;padding:15px;font-size:16px;font-weight:700;cursor:pointer;text-align:center;}
@@ -98,7 +101,7 @@
     <div class="cartao" onclick="vai('e-rever')"><div class="linha1"><span class="t">Documentos por rever</span><span class="badge">3</span></div><div class="d">Loja Kiala · o mais antigo espera há 2 dias</div></div>
     <div class="cartao" onclick="vai('e-perfil')"><div class="linha1"><span class="t">Mês por fechar</span><span class="badge azul">1</span></div><div class="d">Padaria Horizonte · outubro</div></div>
     <div class="cartao" onclick="vai('e-perfil')"><div class="linha1"><span class="t">Documentos em falta</span><span class="badge azul">2</span></div><div class="d">Loja Kiala · detetados pelo SAF-T de vendas</div></div>
-    <div class="cartao"><div class="linha1"><span class="t">Tudo tratado</span><span class="badge verde">✓</span></div><div class="d">Oficina Girassol · novembro em dia</div></div>
+    <div class="cartao"><div class="linha1"><span class="t">Tudo tratado</span><span class="visto"><svg viewBox="0 0 24 24"><path d="M4.5 12.5 10 18 19.5 6.5"/></svg></span></div><div class="d">Oficina Girassol · novembro em dia</div></div>
     </div>
   </div>
   <!-- ESCRITÓRIO: EMPRESAS -->
@@ -107,7 +110,7 @@
     <div class="grade">
     <div class="cartao" onclick="vai('e-perfil')"><div class="linha1"><span class="t">Loja Kiala</span><span class="badge">3</span></div><div class="d">Comércio Geral · NIF 5005554443 · regime geral</div></div>
     <div class="cartao" onclick="vai('e-perfil')"><div class="linha1"><span class="t">Padaria Horizonte, Lda</span><span class="badge azul">1</span></div><div class="d">NIF 5001234567 · mês de outubro por fechar</div></div>
-    <div class="cartao"><div class="linha1"><span class="t">Oficina Girassol, Lda</span><span class="badge verde">✓</span></div><div class="d">NIF 5007654321 · em dia</div></div>
+    <div class="cartao"><div class="linha1"><span class="t">Oficina Girassol, Lda</span><span class="visto"><svg viewBox="0 0 24 24"><path d="M4.5 12.5 10 18 19.5 6.5"/></svg></span></div><div class="d">NIF 5007654321 · em dia</div></div>
     </div>
     <button class="btn sec" style="margin-top:11px">+ Registar nova empresa</button>
   </div>
@@ -116,7 +119,7 @@
     <button class="voltar" onclick="vai('e-empresas')">‹ Empresas</button>
     <div class="topo-ecra"><div class="avatar">LK</div><div><div class="nome">Loja Kiala</div><div class="sub">NIF 5005554443 · regime geral · novembro</div></div></div>
     <div class="passos">
-      <div class="passo feito"><div class="bola">✓</div>Receber</div>
+      <div class="passo feito"><div class="bola"><svg viewBox="0 0 24 24"><path d="M4.5 12.5 10 18 19.5 6.5"/></svg></div>Receber</div>
       <div class="passo atual"><div class="bola">2</div>Tratar</div>
       <div class="passo"><div class="bola">3</div>Rever</div>
       <div class="passo"><div class="bola">4</div>Fechar</div>

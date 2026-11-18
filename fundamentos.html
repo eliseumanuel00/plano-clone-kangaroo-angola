@@ -46,7 +46,8 @@
   .passos{display:flex;gap:6px;margin:4px 0 14px;}
   .passo{flex:1;text-align:center;font-size:12px;color:var(--suave);}
   .passo .bola{width:30px;height:30px;border-radius:50%;border:2px solid var(--linha);margin:0 auto 4px;display:flex;align-items:center;justify-content:center;font-weight:700;background:#fff;}
-  .passo.feito .bola{background:var(--verde);border-color:var(--verde);color:#fff;}
+  .passo.feito .bola{background:transparent;border-color:transparent;}
+  .passo .bola svg{width:22px;height:22px;stroke:var(--azul);stroke-width:2.4;fill:none;stroke-linecap:round;stroke-linejoin:round;}
   .passo.atual .bola{border-color:var(--azul);color:var(--azul);}
   .passo.atual{color:var(--azul);font-weight:700;}
   .sugestao{background:#EAF3EE;border:1px solid #BFE3D2;border-radius:12px;padding:13px;margin-bottom:11px;}
@@ -168,7 +169,7 @@
     <div class="demo">
       <div class="cartao"><div class="linha1"><span class="t">Documentos por rever</span><span class="badge">3</span></div><div class="d">Cartão de tarefa com contador</div></div>
       <div class="passos">
-        <div class="passo feito"><div class="bola">✓</div>Receber</div>
+        <div class="passo feito"><div class="bola"><svg viewBox="0 0 24 24"><path d="M4.5 12.5 10 18 19.5 6.5"/></svg></div>Receber</div>
         <div class="passo atual"><div class="bola">2</div>Tratar</div>
         <div class="passo"><div class="bola">3</div>Rever</div>
         <div class="passo"><div class="bola">4</div>Fechar</div>
@@ -196,7 +197,7 @@
       <tr><td class="icone-celula"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5V12h8.5"/><path class="pre" d="M12 3.5a8.5 8.5 0 0 1 8.5 8.5H12z"/></svg></td><td>O meu mês / Progresso</td><td>Progresso do mês da empresa</td></tr>
       <tr><td class="icone-celula"><svg viewBox="0 0 24 24"><path d="M4.5 12.5 10 18 19.5 6.5"/></svg></td><td>Feito / Confirmado</td><td>Passos concluídos e confirmações</td></tr>
     </table>
-    <p class="nota">Estilo adotado: o estilo dos ícones da aplicação do Facebook, contorno fino e arredondado, cinzento quando inativo e azul cheio quando ativo. Os ícones são desenhados por nós nesse estilo, em vetor (SVG), 26 px na barra de navegação; não se usam ficheiros nem símbolos do Facebook.</p>
+    <p class="nota">Estilo adotado: o estilo dos ícones da aplicação do Facebook, contorno fino e arredondado, cinzento quando inativo e azul cheio quando ativo. Os ícones são desenhados por nós nesse estilo, em vetor (SVG), 26 px na barra de navegação; não se usam ficheiros nem símbolos do Facebook. Um passo ou item concluído marca-se com o visto azul em contorno; não se usa círculo verde preenchido.</p>
   </section>
 
   <section>
