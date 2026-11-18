@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plano de Construção — Plataforma para Escritórios de Contabilidade em Angola (clone Kangaroo Files)</title>
+<style>
+  :root{
+    --azul:#1346AF; --azul-escuro:#0d2f75; --fundo:#f6f7fb; --cartao:#ffffff;
+    --texto:#1c2333; --suave:#5a6478; --linha:#e2e6f0;
+    --verde:#0e7a4f; --amarelo:#9a6b00; --fundo-amarelo:#fdf6e0;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif; background:var(--fundo); color:var(--texto); line-height:1.65; font-size:17px;}
+  header.hero{background:linear-gradient(135deg,var(--azul-escuro),var(--azul)); color:#fff; padding:56px 20px 44px;}
+  .wrap{max-width:920px; margin:0 auto;}
+  header.hero h1{font-size:32px; line-height:1.25; margin-bottom:14px;}
+  header.hero p{font-size:18px; opacity:.92; max-width:760px;}
+  .meta{margin-top:20px; font-size:14px; opacity:.85;}
+  nav.topo{position:sticky; top:0; background:#fff; border-bottom:1px solid var(--linha); z-index:10; overflow-x:auto; white-space:nowrap;}
+  nav.topo .wrap{display:flex; gap:4px; padding:8px 12px;}
+  nav.topo a{color:var(--azul); text-decoration:none; font-size:14.5px; padding:6px 10px; border-radius:8px;}
+  nav.topo a:hover{background:var(--fundo);}
+  main{padding:28px 20px 60px;}
+  section{background:var(--cartao); border:1px solid var(--linha); border-radius:14px; padding:28px 26px; margin-bottom:22px;}
+  h2{font-size:24px; color:var(--azul-escuro); margin-bottom:6px;}
+  h2 .num{display:inline-block; background:var(--azul); color:#fff; border-radius:9px; width:34px; height:34px; line-height:34px; text-align:center; font-size:17px; margin-right:10px; vertical-align:2px;}
+  h3{font-size:18.5px; margin:20px 0 8px; color:var(--texto);}
+  p{margin-bottom:12px;}
+  ul,ol{margin:0 0 14px 22px;}
+  li{margin-bottom:6px;}
+  .sub{color:var(--suave); font-size:15px; margin-bottom:16px;}
+  sup a{color:var(--azul); text-decoration:none; font-weight:600;}
+  table{width:100%; border-collapse:collapse; margin:12px 0 18px; font-size:15.5px;}
+  th,td{border:1px solid var(--linha); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{background:var(--fundo); color:var(--azul-escuro);}
+  .caixa{background:var(--fundo); border:1px solid var(--linha); border-radius:10px; padding:16px 18px; margin:14px 0;}
+  .caixa-amarela{background:var(--fundo-amarelo); border:1px solid #eadfae; border-radius:10px; padding:16px 18px; margin:14px 0;}
+  .caixa-amarela h3{margin-top:0; color:var(--amarelo);}
+  .etiqueta{display:inline-block; font-size:12.5px; font-weight:700; letter-spacing:.4px; text-transform:uppercase; padding:3px 9px; border-radius:20px; margin-bottom:10px;}
+  .et-facto{background:#e3f2ea; color:var(--verde);}
+  .et-proposta{background:#e6ecfa; color:var(--azul);}
+  .et-validar{background:#fdf6e0; color:var(--amarelo);}
+  .fluxo{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px; margin:14px 0;}
+  .passo{background:var(--fundo); border:1px solid var(--linha); border-radius:10px; padding:14px;}
+  .passo b{display:block; color:var(--azul-escuro); margin-bottom:4px;}
+  .fontes{font-size:14.5px;}
+  .fontes li{margin-bottom:8px; word-break:break-word;}
+  footer{text-align:center; color:var(--suave); font-size:14px; padding:26px 16px 40px;}
+  @media (max-width:600px){ header.hero h1{font-size:25px;} section{padding:22px 17px;} body{font-size:16px;} }
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <h1>Plano de Construção: plataforma de gestão documental para escritórios de contabilidade em Angola</h1>
+    <p>Clone da Kangaroo Files (Portugal) adaptado ao contexto angolano: receção de documentos dos clientes, arquivo digital pesquisável e lançamentos automáticos com IA para o Primavera V10.</p>
+    <div class="meta">Documento de trabalho para análise e ajuste · 18 de novembro de 2026 · Todos os dados de mercado e legais citados têm fonte indicada. O que não foi possível comprovar está assinalado como lacuna, nunca estimado.</div>
+  </div>
+</header>
+<nav class="topo">
+  <div class="wrap">
+    <a href="#modelo">O modelo</a><a href="#adaptacao">Adaptação a Angola</a><a href="#contexto">Contexto angolano</a><a href="#fase1">1 Ideia</a><a href="#fase2">2 Planeamento</a><a href="#fase3">3 Design</a><a href="#fase4">4 Desenvolvimento</a><a href="#fase5">5 Testes</a><a href="#fase6">6 Lançamento</a><a href="#fase7">7 Manutenção</a><a href="#fontes">Fontes</a>
+  </div>
+</nav>
+<main>
+<div class="wrap">
+
+<section id="modelo">
+  <h2>O modelo: Kangaroo Files</h2>
+  <p class="sub">O que a aplicação original faz, confirmado no site oficial kangaroofiles.com.</p>
+  <span class="etiqueta et-facto">Factos com fonte</span>
+  <p>O Kangaroo Files é uma plataforma portuguesa para gabinetes de contabilidade e contabilistas certificados que combina três peças: <strong>Área de Cliente</strong>, <strong>Arquivo Digital Fiscal</strong> e <strong>lançamentos contabilísticos automáticos por Inteligência Artificial</strong>. Resolve o problema dos documentos dos clientes dispersos, desorganizados e demorados de tratar, perdidos em emails, mensagens e papel. Quem paga é o gabinete de contabilidade; quem usa no dia a dia são o gabinete (tratar e validar) e os clientes do gabinete (enviar e consultar documentos).<sup><a href="#f1">[1]</a></sup></p>
+  <h3>Como funciona</h3>
+  <div class="fluxo">
+    <div class="passo"><b>1. O cliente envia</b>Documentos pela Área de Cliente, por email ou reencaminhamento, por WhatsApp ou por digitalização em lote. Aceita fotos, PDFs e digitalizações, sem o cliente ter de renomear ficheiros.<sup><a href="#f2">[2]</a></sup></div>
+    <div class="passo"><b>2. A IA lê e classifica</b>Lê a fatura incluindo as linhas, sem depender do código QR, extrai os dados, classifica no diário correto e prepara o lançamento completo. Exemplo publicado: débito Mercadorias 100 €, débito IVA Dedutível 23 €, crédito Fornecedor 123 €.<sup><a href="#f1">[1]</a></sup></div>
+    <div class="passo"><b>3. A IA valida</b>Deteta duplicados, valida NIFs e cruza com o portal eFatura da Autoridade Tributária. Se há faturas no eFatura que o cliente não entregou, gera um email automático a pedi-las.<sup><a href="#f2">[2]</a></sup></div>
+    <div class="passo"><b>4. O contabilista aprova</b>A IA prepara, o contabilista valida contas e impostos antes de integrar no ERP. A plataforma aprende com as correções e declara explicitamente que não substitui o contabilista.<sup><a href="#f2">[2]</a></sup></div>
+  </div>
+  <h3>Funcionalidades confirmadas no site oficial</h3>
+  <ul>
+    <li>Área de Cliente com a marca do próprio escritório, acesso 24/7 e credenciais individuais por cliente</li>
+    <li>Documentação centralizada em pastas (Contratos, Atas, Guias), com permissões definidas pelo contabilista</li>
+    <li>Anotações nos documentos para clarificar sem trocar emails</li>
+    <li>Arquivo digital com ficheiros selados e verificação de integridade; cumpridos os requisitos legais, o papel pode ser destruído</li>
+    <li>Pesquisa inteligente por valor, data, NIF, fornecedor e pelo conteúdo das linhas das faturas</li>
+    <li>«Cofre» com encriptação ponta a ponta; autenticação de dois fatores; backups redundantes; servidores na Europa (França e Alemanha)</li>
+    <li>Integração em destaque com o Cegid Primavera; os Termos nomeiam também Sage, Centralgest e PHC; existe um «Conector» instalado nos computadores do cliente</li>
+    <li>Devolução/exportação dos dados no fim do contrato, à escolha do cliente</li>
+  </ul>
+  <h3>Preços: o que se sabe e o que não se sabe</h3>
+  <p><strong>Não existe tabela pública de preços.</strong> Os Termos confirmam apenas que há planos Free (grátis) e Premium (pagos), com subscrição mensal ou anual e cancelamento sem penalização. O único valor público está nos dados estruturados da página inicial: intervalo de <strong>0 € a 119,90 €</strong>.<sup><a href="#f3">[3]</a></sup> Conclusão prática: o preço da versão angolana é uma decisão nossa, a validar com escritórios reais; a Kangaroo serve só como âncora de ordem de grandeza.</p>
+  <p>Prova social publicada: dois testemunhos nomeados (João Marques, da AccountFirm; Ana Silva, Diretora Financeira). Não publicam números de utilizadores nem avaliações.<sup><a href="#f1">[1]</a></sup></p>
+</section>
+
+<section id="adaptacao">
+  <h2>Adaptação: de Portugal para Angola</h2>
+  <p class="sub">Cada peça portuguesa tem um equivalente angolano. É esta tradução que o plano constrói.</p>
+  <table>
+    <tr><th>Na Kangaroo (Portugal)</th><th>Na versão angolana</th></tr>
+    <tr><td>Arquivo Digital Fiscal conforme o Decreto-Lei n.º 28/2019</td><td>Arquivo digital com selo de integridade, enquadrado na Lei n.º 22/11 de Proteção de Dados Pessoais e nas obrigações de conservação fiscal da AGT</td></tr>
+    <tr><td>Cruzamento com o eFatura da AT para detetar documentos em falta</td><td>Cruzamento com o SAF-T (AO) de faturação e, à medida que a faturação eletrónica da AGT avança, com as faturas eletrónicas do cliente; o que falta é pedido automaticamente ao cliente</td></tr>
+    <tr><td>Plano de contas português (ex.: IVA Dedutível 2432)</td><td>Plano Geral de Contabilidade de Angola (Decreto n.º 82/01), com o IVA na conta 34.5 e respetivas subcontas criadas pelo Regulamento do IVA<sup><a href="#f6">[6]</a></sup></td></tr>
+    <tr><td>IVA a 23% (exemplo publicado)</td><td>IVA a 14% no regime geral; 7% no regime simplificado; regimes por volume de negócios (exclusão, simplificado, geral)<sup><a href="#f7">[7]</a></sup></td></tr>
+    <tr><td>Integração Cegid Primavera (Portugal)</td><td>Integração com o <strong>Primavera V10</strong> usado em Angola, via conector local no computador do escritório</td></tr>
+    <tr><td>RGPD</td><td>Lei n.º 22/11 e notificação prévia à APD antes de tratar dados reais de clientes<sup><a href="#f10">[10]</a></sup></td></tr>
+    <tr><td>Subscrição por cartão/débito europeu</td><td>Pagamento por Multicaixa Express e Referência (os canais que os angolanos usam), com links mensais e lembretes, porque a recorrência automática não está documentada publicamente<sup><a href="#f13">[13]</a></sup></td></tr>
+  </table>
+</section>
+
+<section id="contexto">
+  <h2>Contexto angolano: os dados que sustentam o plano</h2>
+  <span class="etiqueta et-facto">Factos com fonte</span>
+  <h3>Mercado</h3>
+  <ul>
+    <li>O Recenseamento de Empresas e Estabelecimentos (REMPE-2019, INE) contou <strong>83.722 empresas</strong> em Angola; cerca de 84% são microempresas (1 a 6 trabalhadores), 49% estão em Luanda e o comércio representa 59% do tecido empresarial. Não foi encontrada contagem pública mais recente.<sup><a href="#f8">[8]</a></sup></li>
+    <li>A OCPCA (Ordem dos Contabilistas e dos Peritos Contabilistas de Angola) tinha <strong>4.691 membros</strong> associados no seu Plano de Atividades de 2019, mais 2.649 candidatos e 2.463 estagiários. Número atual: sem fonte pública encontrada.<sup><a href="#f9">[9]</a></sup></li>
+    <li>As demonstrações financeiras têm de ser assinadas por contabilistas inscritos na Ordem, e as entidades obrigadas ao PGC devem identificar o seu contabilista à OCPCA até 30 de março de cada ano. A partir de 2025, a OCPCA e a AGT preparam uma ligação de sistemas em que só contabilistas com a situação regularizada na Ordem são aceites.<sup><a href="#f5">[5]</a></sup></li>
+    <li>Nas pesquisas feitas, <strong>não foi encontrada nenhuma plataforma angolana de recolha de documentos de clientes</strong> vendida a escritórios de contabilidade. O software local que existe é de faturação e gestão (Kacennu, Logigate, NEGOMIL). Há escritórios que improvisam a sua própria área de cliente: a WL Consultoria, por exemplo, recebe os documentos mensais dos clientes em formato digital pela área de cliente do seu site, até ao dia 10 do mês seguinte.<sup><a href="#f16">[16]</a></sup></li>
+  </ul>
+  <h3>Enquadramento legal e fiscal</h3>
+  <ul>
+    <li><strong>PGC:</strong> Plano Geral de Contabilidade aprovado pelo Decreto n.º 82/01, de 16 de novembro, obrigatório para sociedades comerciais e empresas públicas (exceto setores com planos próprios, como banca e seguros).<sup><a href="#f6">[6]</a></sup></li>
+    <li><strong>IVA:</strong> taxa geral de 14%; regime simplificado a 7%. Regimes por volume de negócios do ano anterior: exclusão abaixo de 25.000.000 Kz; simplificado entre 25.000.000 e 350.000.000 Kz; geral a partir de 350.000.000 Kz.<sup><a href="#f7">[7]</a></sup></li>
+    <li><strong>Modelo 7:</strong> declaração mensal do IVA do regime geral, com anexo de fornecedores e anexo de regularizações. Desde 2025, a AGT pré-preenche a Modelo 7 a partir do SAF-T (AO) e das faturas eletrónicas, o que torna a qualidade dos dados de entrada ainda mais valiosa.<sup><a href="#f7">[7]</a></sup></li>
+    <li><strong>Faturação eletrónica (AGT):</strong> Regime Jurídico das Facturas (Decreto Presidencial n.º 71/25), em vigor desde 20 de setembro de 2025, com software certificado, transmissão em tempo real e código QR. Em 2026 é obrigatória só para Grandes Contribuintes e fornecedores do Estado; <strong>a partir de 1 de janeiro de 2027, para todos os contribuintes dos regimes geral e simplificado</strong>. Operações de 25.000.000 Kz ou mais têm sempre de ser documentadas por fatura eletrónica.<sup><a href="#f11">[11]</a></sup></li>
+    <li><strong>SAF-T da contabilidade:</strong> submissão anual até 10 de abril. Para o exercício de 2025 a AGT dispensou a obrigatoriedade; torna-se obrigatória a partir do exercício de 2026 (entrega a 10 de abril de 2027).<sup><a href="#f12">[12]</a></sup></li>
+    <li><strong>Proteção de dados:</strong> a Lei n.º 22/11 exige <strong>notificação prévia à APD</strong> (Agência de Proteção de Dados) antes de tratar dados pessoais, contrato escrito com subcontratantes e medidas técnicas de segurança. As multas são reais: em 2024 a APD anunciou coimas de 150.000 USD, 75.000 USD e 225.000 USD a empresas, incluindo por falta de notificação.<sup><a href="#f10">[10]</a></sup></li>
+  </ul>
+  <h3>Digital e pagamentos</h3>
+  <ul>
+    <li>Internet: <strong>17,6 milhões de utilizadores, 44,8% da população</strong> (DataReportal, Digital 2026: Angola, dados de finais de 2025); 30,6 milhões de ligações móveis ativas. Unitel lidera as subscrições móveis com 73%, seguida da Africell com 25% (INACOM 2024).<sup><a href="#f14">[14]</a></sup></li>
+    <li>WhatsApp: o DataReportal não publica o número de utilizadores para Angola. A Sensor Tower estimou cerca de <strong>6,2 milhões de utilizadores ativos semanais</strong> do WhatsApp no 4.º trimestre de 2025, e cerca de 694 mil do WhatsApp Business.<sup><a href="#f14">[14]</a></sup></li>
+    <li>Pagamentos: o Multicaixa Express e o Pagamento por Referência são os canais correntes de pagamento online em Angola. A WiPay publica comissões de <strong>1% no Multicaixa Express e 1% na Referência</strong>, com checkout alojado e confirmação automática assinada. Recorrência automática de subscrições por estes canais: <strong>sem fonte pública encontrada</strong>, por isso o plano assume pagamentos mensais iniciados por link, com lembretes.<sup><a href="#f13">[13]</a></sup></li>
+    <li>Lojas de aplicações: conta Google Play Console custa <strong>25 USD, pagamento único</strong>; Apple Developer Program custa <strong>99 USD por ano</strong> (fontes oficiais).<sup><a href="#f15">[15]</a></sup></li>
+    <li>Concorrência de ERP: a Cegid descreve o Primavera como «um dos sistemas de gestão empresarial mais utilizados em Angola», com mais de 25 anos de presença; o PHC tem mais de 20 anos. A Cegid comprou a PHC em janeiro de 2025. É por isso que a integração com o Primavera V10 é a peça central, tal como na Kangaroo.<sup><a href="#f16">[16]</a></sup></li>
+  </ul>
+</section>
+
+<section id="fase1">
+  <h2><span class="num">1</span>Ideia e validação</h2>
+  <h3>O problema</h3>
+  <p>Os escritórios de contabilidade em Angola recebem os documentos dos clientes tarde e mal: fotos por WhatsApp sem ordem, papel entregue em mão, emails perdidos. O resultado é tempo perdido a pedir, a organizar e a digitar documentos no ERP, mês após mês, com o risco de a Modelo 7 e os prazos da AGT ficarem comprometidos. É exatamente o problema que a Kangaroo resolve em Portugal: «documentos dispersos, desorganizados e demorados de tratar».<sup><a href="#f2">[2]</a></sup> Em Angola há um sinal de que a dor existe: há escritórios que já construíram áreas de cliente próprias nos seus sites só para receber os documentos mensais dos clientes.<sup><a href="#f16">[16]</a></sup></p>
+  <h3>Quem vai usar</h3>
+  <ul>
+    <li><strong>Quem paga: o escritório de contabilidade</strong> (dono e equipa). É o cliente da subscrição, como na Kangaroo.</li>
+    <li><strong>Quem usa todos os dias: a equipa do escritório</strong>, que trata, valida e lança; <strong>e as empresas clientes do escritório</strong>, que enviam e consultam documentos na sua área, sem pagarem por isso.</li>
+    <li><strong>Perfil alvo inicial:</strong> escritórios pequenos e médios que tratam a contabilidade de várias empresas no Primavera V10 e sentem o estrangulamento mensal da recolha de documentos.</li>
+  </ul>
+  <h3>O que a aplicação resolve</h3>
+  <ul>
+    <li>Um único sítio para os documentos entrarem: área do cliente, email, WhatsApp e digitalização em lote.</li>
+    <li>Arquivo digital organizado e pesquisável em segundos, que dispensa o papel e o arquivo físico.</li>
+    <li>A IA lê, classifica no PGC e prepara o lançamento; o contabilista só valida. O lançamento entra no Primavera V10.</li>
+    <li>O sistema sabe o que falta (cruzamento com o SAF-T de faturação do cliente) e pede ao cliente, sem o escritório andar a telefonar.</li>
+    <li>O escritório mostra valor ao cliente com uma área profissional com a sua marca, em vez de trocas de mensagens informais.</li>
+  </ul>
+  <h3>Funcionalidades essenciais (a lista do clone)</h3>
+  <span class="etiqueta et-proposta">Proposta, a partir do modelo</span>
+  <ol>
+    <li><strong>Área do Escritório:</strong> fila de trabalho do dia, empresas clientes, documentos por tratar, mês de cada empresa em passos visíveis (receber, tratar, rever, fechar).</li>
+    <li><strong>Área do Cliente</strong> com a marca do escritório: enviar documentos (foto, PDF, digitalização), consultar os seus documentos e o estado do seu mês, sem linguagem contabilística.</li>
+    <li><strong>Receção multicanal:</strong> upload na área do cliente, email por empresa, WhatsApp e digitalização em lote.</li>
+    <li><strong>Leitura automática:</strong> extração de emitente, NIF, data, número, base, IVA e total, incluindo as linhas da fatura, em PDF digital e em foto (OCR).</li>
+    <li><strong>Classificação com IA no PGC:</strong> sugestão de conta com o motivo explicado; regras aprendidas com as correções do contabilista; tratamento automático dos documentos habituais já validados várias vezes.</li>
+    <li><strong>Lançamento preparado e validado:</strong> o contabilista confirma ou corrige com um toque; nada entra no ERP sem validação humana (a Lei n.º 22/11 também protege os titulares contra decisões puramente automatizadas<sup><a href="#f10">[10]</a></sup>).</li>
+    <li><strong>Integração Primavera V10:</strong> conector local que escreve os lançamentos validados no ERP do escritório, com referências únicas para nunca duplicar.</li>
+    <li><strong>Arquivo pesquisável</strong> por valor, data, NIF, fornecedor e conteúdo das linhas; ficheiros selados com verificação de integridade.</li>
+    <li><strong>Documentos em falta:</strong> importação do SAF-T (AO) de faturação do cliente, deteção do que falta e pedido automático ao cliente.</li>
+    <li><strong>Validações:</strong> duplicados detetados à entrada (ficheiro igual ou mesmo emitente, data e total), sem bloquear o envio.</li>
+    <li><strong>Segurança:</strong> encriptação dos ficheiros em repouso (cofre), autenticação em dois passos por email, cópias de segurança, registo de auditoria.</li>
+    <li><strong>Demonstrações e fecho:</strong> balancete, Balanço, Demonstração de Resultados e mapa de IVA (conta 34.5) a partir dos lançamentos, para o contabilista rever antes de assinar.</li>
+    <li><strong>Subscrição do escritório:</strong> planos por número de empresas clientes, pagamento por Multicaixa Express e Referência.</li>
+  </ol>
+  <h3>Validação antes de construir</h3>
+  <span class="etiqueta et-validar">A validar</span>
+  <ul>
+    <li>Entrevistar 5 a 10 escritórios: como recebem hoje os documentos, quanto tempo perdem, que ERP usam, quanto pagariam.</li>
+    <li>Um escritório piloto real a usar a primeira versão com as suas empresas, antes de qualquer venda pública.</li>
+    <li>Preço: a Kangaroo não publica preços (intervalo 0 a 119,90 €<sup><a href="#f3">[3]</a></sup>). Os escalões em kwanzas definem-se depois das entrevistas, não antes. Qualquer valor escrito antes disso seria inventado.</li>
+    <li>Confirmar com um escritório que use Primavera V10: edição instalada, onde corre (servidor local ou nuvem) e se a licença permite integração.</li>
+  </ul>
+</section>
+
+<section id="fase2">
+  <h2><span class="num">2</span>Planeamento</h2>
+  <h3>Telas principais</h3>
+  <span class="etiqueta et-proposta">Proposta</span>
+  <p><strong>Lado do escritório:</strong> Início (fila de tarefas de hoje) · Empresas (lista e perfil de cada empresa) · Rever documento (um ecrã, um botão principal: confirmar) · Classificação (sugestão com motivo, corrigir se preciso) · Arquivo (pesquisa) · Equipa · Subscrição · Definições (segurança, cofre, conector Primavera).</p>
+  <p><strong>Lado da empresa cliente:</strong> Início · Enviar · Documentos · O meu mês · Relatórios · Assistente. Linguagem simples, zero termos de contabilidade.</p>
+  <p><strong>Regra de fluxo:</strong> o mês de cada empresa é um caminho visível de 4 passos: Receber, Tratar, Rever, Fechar. Cada ecrã resolve uma tarefa com um botão principal. Enviar um documento custa no máximo 3 toques; confirmar, 1 toque; fechar o mês, 3 toques.</p>
+  <h3>Fluxo do utilizador (o mês típico)</h3>
+  <div class="fluxo">
+    <div class="passo"><b>Receber</b>A empresa envia os documentos do mês pela sua área, email ou WhatsApp. O sistema lê e organiza sozinho.</div>
+    <div class="passo"><b>Tratar</b>A IA classifica no PGC e prepara os lançamentos. Documentos habituais já validados tratam-se sozinhos e ficam marcados como automáticos.</div>
+    <div class="passo"><b>Rever</b>O contabilista revê as sugestões, corrige o que for preciso (a IA aprende) e aprova. Os lançamentos entram no Primavera V10.</div>
+    <div class="passo"><b>Fechar</b>Mapa de IVA conferido, demonstrações geradas, mês fechado e assinado pelo contabilista inscrito na OCPCA.</div>
+  </div>
+  <h3>Base de dados (entidades principais)</h3>
+  <ul>
+    <li><strong>escritorios</strong> e <strong>utilizadores</strong> (equipa, papéis, dois fatores)</li>
+    <li><strong>empresas</strong> (clientes do escritório: NIF, regime de IVA, logótipo) e <strong>acessos_empresa</strong> (utilizadores do lado do cliente)</li>
+    <li><strong>documentos</strong> e <strong>documento_linhas</strong> (ficheiro, canal de receção, dados extraídos, estado, selo de integridade)</li>
+    <li><strong>lancamentos</strong> (débitos e créditos no PGC, origem, validação, referência no Primavera)</li>
+    <li><strong>meses</strong> (estado do mês por empresa), <strong>importacoes</strong> (SAF-T e faturação eletrónica), <strong>regras_aprendidas</strong> (fornecedor, conta, IVA)</li>
+    <li><strong>subscricoes</strong> e <strong>pagamentos</strong> (plano, referência, estado, confirmação do gateway)</li>
+  </ul>
+  <h3>Esboço e protótipo</h3>
+  <ol>
+    <li>Esboço no papel dos fluxos acima, ecrã a ecrã.</li>
+    <li>Protótipo navegável (Figma ou protótipo web simples) dos dois lados: escritório e empresa.</li>
+    <li>Teste de 5 minutos com uma pessoa que não é contabilista: tem de perceber 50% a 75% do funcionamento sem explicação. Só depois se constrói.</li>
+  </ol>
+</section>
+
+<section id="fase3">
+  <h2><span class="num">3</span>Design UI/UX</h2>
+  <span class="etiqueta et-proposta">Proposta de identidade</span>
+  <h3>Princípios</h3>
+  <ul>
+    <li><strong>Simples antes de bonito:</strong> a entrada é a fila de tarefas de hoje, não um menu de módulos. Um ecrã, uma tarefa, um botão principal.</li>
+    <li><strong>Linguagem do utilizador:</strong> no lado da empresa, nada de «PGC», «lançamento» ou «classificação»; diz-se «documentos recebidos», «o escritório está a tratar», «mês fechado».</li>
+    <li><strong>Cada sugestão da IA explica o porquê</strong> numa frase, para o contabilista confiar e corrigir depressa.</li>
+    <li><strong>Pensado para telemóveis fracos e redes lentas:</strong> ecrãs leves, poucos elementos pesados, funciona bem em ecrã pequeno.</li>
+  </ul>
+  <h3>Identidade visual (base de trabalho)</h3>
+  <table>
+    <tr><th>Elemento</th><th>Proposta</th></tr>
+    <tr><td>Cor principal</td><td>Azul profundo (#1346AF) com azul escuro (#0D2F75) nos títulos: confiança e contexto institucional</td></tr>
+    <tr><td>Cor de ação</td><td>Azul vivo nos botões principais; verde apenas para estados concluídos; vermelho apenas para pendentes e erros</td></tr>
+    <tr><td>Tipografia</td><td>Fonte do sistema (rápida, sem downloads) com títulos fortes e texto corrido generoso</td></tr>
+    <tr><td>Ilustrações</td><td>Ilustrações simples e leves nos ecrãs vazios e nos cartões de tarefa, sem pesar no carregamento</td></tr>
+    <tr><td>Marca do escritório</td><td>A área do cliente mostra o logótipo e o nome do escritório, como na Kangaroo: o cliente vê a marca de quem o serve, não a nossa</td></tr>
+  </table>
+  <h3>Protótipo clicável</h3>
+  <p>Antes do código, um protótipo clicável dos fluxos principais (enviar documento, rever e confirmar, fechar o mês) validado pelo escritório piloto e por um utilizador não contabilista. O que o protótipo reprovar, redesenha-se no protótipo, não no código.</p>
+</section>
+
+<section id="fase4">
+  <h2><span class="num">4</span>Desenvolvimento</h2>
+  <span class="etiqueta et-proposta">Proposta técnica</span>
+  <h3>Arquitetura</h3>
+  <ul>
+    <li><strong>Uma só base de código, três canais:</strong> aplicação web responsiva (React + TypeScript) servida pelo servidor; app Android e iOS geradas da mesma base (Capacitor). O que se corrige na web aparece em todo o lado.</li>
+    <li><strong>Servidor:</strong> Node.js + Express e base de dados PostgreSQL, multi-escritório (cada escritório isolado dos outros).</li>
+    <li><strong>Ficheiros:</strong> guardados encriptados, com selo de integridade (SHA-256) calculado no original.</li>
+    <li><strong>Conector Primavera:</strong> programa Windows que corre onde o Primavera V10 está instalado, no escritório.</li>
+  </ul>
+  <h3>Ordem de construção</h3>
+  <ol>
+    <li><strong>Fase 0, fundações:</strong> contas e equipa, empresas, PGC oficial de Angola carregado, lançamentos, Balanço, Demonstração de Resultados e Fluxo de Caixa.</li>
+    <li><strong>Fase 1, arquivo:</strong> upload, leitura de PDFs, arquivo pesquisável pelo conteúdo, integridade dos ficheiros.</li>
+    <li><strong>Fase 2, receção:</strong> email por empresa e área do cliente; a seguir, WhatsApp.</li>
+    <li><strong>Fase 3, IA:</strong> deteção de duplicados, sugestão de classificação (regras aprendidas, linhas da fatura, modelo quando nenhuma regra se aplica), deteção de documentos em falta com pedido ao cliente.</li>
+    <li><strong>Fase 4, comercial:</strong> planos e subscrições, pagamentos, termos e contrato de tratamento de dados, dois fatores.</li>
+    <li><strong>Fase 5, integrações:</strong> conector Primavera V10 real e SAF-T da contabilidade anual.</li>
+  </ol>
+  <h3>Integração com o Primavera V10 (lançamentos automáticos)</h3>
+  <ul>
+    <li>O conector corre no computador ou servidor do escritório onde o Primavera está instalado e fala com a nuvem por uma chave própria do escritório.</li>
+    <li>Busca os meses prontos e os lançamentos validados, e escreve-os no Primavera pela API oficial de integração, com uma referência única por lançamento: se correr duas vezes, não duplica.</li>
+    <li>O resultado de cada escrita volta para a plataforma (sucesso ou erro), para o contabilista saber o que entrou.</li>
+    <li>O mapeamento de contas é por escritório, porque cada escritório organiza o PGC à sua maneira dentro das regras.</li>
+    <li><strong>Dependência externa:</strong> o escritor real só se fecha com as respostas do escritório piloto: edição do Primavera V10, onde corre, se a licença permite integração e uma empresa de teste. Até lá, o conector trabalha com um escritor simulado que prova todo o caminho sem tocar no ERP real.</li>
+  </ul>
+  <h3>Como a IA trabalha (e quanto custa)</h3>
+  <ul>
+    <li>O trabalho repetido é feito por regras aprendidas e OCR local: custo zero e dados que não saem do servidor.</li>
+    <li>Um modelo de linguagem só é chamado quando nenhuma regra conhecida se aplica, e recebe o mínimo de dados (sem emails nem números longos).</li>
+    <li>Nada é lançado sem validação humana; as correções alimentam as regras, como na Kangaroo («aprendizagem contínua»).<sup><a href="#f4">[4]</a></sup></li>
+  </ul>
+  <p><strong>Marco da fase:</strong> a aplicação a funcionar no telefone, com um mês completo de uma empresa de teste: documentos entram, são classificados, validados e lançados.</p>
+</section>
+
+<section id="fase5">
+  <h2><span class="num">5</span>Testes</h2>
+  <h3>O que se testa</h3>
+  <ul>
+    <li><strong>Erros e casos limite:</strong> testes automáticos do servidor para cada funcionalidade, corridos a cada alteração; PDF ilegível, foto desfocada, documento duplicado, mês fechado, NIF errado no SAF-T.</li>
+    <li><strong>Documentos de teste (um de cada tipo):</strong> fatura em PDF digital, foto nítida de fatura em papel, foto desfocada, duas faturas do mesmo fornecedor habitual, fatura de fornecedor novo, fatura isenta, fatura de mercadoria, combustível, telecom, renda, nota de crédito, fatura-recibo, extrato bancário e SAF-T de vendas.</li>
+    <li><strong>Telefone fraco:</strong> os fluxos principais testados num Android de gama baixa e com rede lenta; ecrãs têm de abrir e responder sem esperas longas.</li>
+    <li><strong>Sem internet:</strong> o envio de documentos fica em fila no dispositivo e sincroniza quando a rede voltar; um documento nunca se perde a meio do envio, e o utilizador vê o que está «por sincronizar».</li>
+    <li><strong>Utilizadores reais:</strong> o teste de 5 minutos do protótipo repete-se na aplicação real, com um não contabilista e com o escritório piloto a fechar um mês completo.</li>
+  </ul>
+  <h3>Lista de bugs corrigidos</h3>
+  <p>Cada ronda de testes produz uma lista de bugs com estado (aberto, corrigido, verificado). Uma funcionalidade só passa à fase seguinte com a lista da sua ronda revista e os bugs críticos a zero. O escritório piloto reporta por um canal único, e cada reporte entra na lista com data e ecrã.</p>
+</section>
+
+<section id="fase6">
+  <h2><span class="num">6</span>Lançamento</h2>
+  <h3>Canais de publicação</h3>
+  <ul>
+    <li><strong>Aplicação web responsiva (canal principal):</strong> fica disponível no dia do lançamento, sem aprovação de terceiros, e abre em qualquer telemóvel ou computador pelo navegador. Num país com 44,8% de penetração de internet e telemóveis de gama variada, é o canal que chega a todos.<sup><a href="#f14">[14]</a></sup></li>
+    <li><strong>Google Play:</strong> conta de programador de 25 USD, pagamento único.<sup><a href="#f15">[15]</a></sup></li>
+    <li><strong>App Store:</strong> Apple Developer Program de 99 USD por ano.<sup><a href="#f15">[15]</a></sup></li>
+  </ul>
+  <h3>Antes de abrir a clientes reais</h3>
+  <ul>
+    <li><strong>Notificação à APD entregue</strong> (Lei n.º 22/11), termos de utilização e contrato de tratamento de dados assinados com cada escritório. Sem isto, só dados de teste.<sup><a href="#f10">[10]</a></sup></li>
+    <li>Gateway de pagamentos em produção (o cadastro comercial do gateway pode pedir documentos que um empresário em nome individual não tem todos; confirmar cedo).</li>
+    <li>Escritório piloto a funcionar como montra: nome, testemunho e caso de estudo, com autorização escrita.</li>
+  </ul>
+  <h3>Funil de vendas</h3>
+  <div class="fluxo">
+    <div class="passo"><b>Descoberta</b>Conteúdo dirigido a contabilistas e donos de escritórios; demonstrações pedidas pelo site, como faz a Kangaroo.<sup><a href="#f2">[2]</a></sup></div>
+    <div class="passo"><b>Demonstração</b>Sessão curta com o mês de uma empresa de exemplo: receber, classificar, lançar no Primavera.</div>
+    <div class="passo"><b>Teste de 30 dias</b>O escritório usa com as suas empresas reais (com APD tratada) e mede o tempo poupado.</div>
+    <div class="passo"><b>Subscrição</b>Plano por número de empresas clientes, pago por Multicaixa Express ou Referência (comissão WiPay publicada: 1%<sup><a href="#f13">[13]</a></sup>).</div>
+  </div>
+  <ul>
+    <li><strong>Cobrança mensal sem recorrência automática:</strong> como a recorrência por Multicaixa Express/Referência não está documentada publicamente, cada mês gera um link de pagamento com lembretes automáticos, e há um período de tolerância antes de a conta descer para o plano gratuito. Os dados nunca são apagados por falta de pagamento.</li>
+    <li><strong>Canais de aquisição:</strong> rede de contactos entre contabilistas (a OCPCA concentra a profissão<sup><a href="#f5">[5]</a></sup>), o escritório piloto como referência, e parcerias com quem já vende software aos escritórios.</li>
+  </ul>
+</section>
+
+<section id="fase7">
+  <h2><span class="num">7</span>Manutenção</h2>
+  <ul>
+    <li><strong>Atualizações:</strong> correções e melhorias entram primeiro na web (todos os canais atualizam ao mesmo tempo) e as apps das lojas acompanham o mesmo ciclo.</li>
+    <li><strong>Ouvir os utilizadores:</strong> canal de feedback dentro da aplicação, revisão mensal dos pedidos e dos bugs reportados, e as novas versões anunciam o que mudou em linguagem simples.</li>
+    <li><strong>Vigiar a lei, porque ela está a mexer:</strong> a faturação eletrónica torna-se obrigatória para todos os regimes geral e simplificado a <strong>1 de janeiro de 2027</strong><sup><a href="#f11">[11]</a></sup>; o SAF-T da contabilidade torna-se obrigatório no exercício de 2026<sup><a href="#f12">[12]</a></sup>; e a revisão da Lei n.º 22/11 esteve em consulta pública em 2025<sup><a href="#f10">[10]</a></sup>. Cada mudança destas é uma funcionalidade: cruzar documentos em falta com a faturação eletrónica, gerar o SAF-T da contabilidade, ajustar consentimentos.</li>
+    <li><strong>Operação:</strong> cópias de segurança redundantes, monitorização do servidor, e suporte por WhatsApp, o canal que os clientes já usam.</li>
+    <li><strong>Evolução do produto:</strong> a ordem natural depois do lançamento é aprofundar as integrações (outros ERP usados em Angola, como o PHC) e a automação, sempre com validação humana antes do lançamento contabilístico.</li>
+  </ul>
+</section>
+
+<section id="lacunas">
+  <div class="caixa-amarela" style="margin:0;">
+    <h3>O que a pesquisa NÃO comprovou (e o plano não inventou)</h3>
+    <ul>
+      <li>Preços por plano da Kangaroo Files: não são públicos; só o intervalo 0 a 119,90 € e a existência de planos Free e Premium.</li>
+      <li>Número atual de contabilistas inscritos na OCPCA e de empresas ativas: as contagens públicas são de 2019 (REMPE e Plano de Atividades da OCPCA).</li>
+      <li>Utilizadores de WhatsApp em Angola: o DataReportal não publica; o valor citado é uma estimativa da Sensor Tower.</li>
+      <li>Recorrência automática de subscrições por Multicaixa Express ou Referência: não documentada publicamente; o plano assume links mensais.</li>
+      <li>Quota de utilização de cada software (Primavera, PHC, Sage, Excel) pelos escritórios angolanos: sem estatística pública encontrada.</li>
+      <li>Prazo exato da Modelo 7: as fontes divergem (último dia útil do mês seguinte no Código do IVA; dia 15 no Calendário Fiscal 2026 da AGT). Confirmar no calendário do ano em curso antes de prometer prazos na aplicação.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="fontes">
+  <h2>Fontes</h2>
+  <ol class="fontes">
+    <li id="f1">Kangaroo Files, página inicial e «Como funciona»: kangaroofiles.com e kangaroofiles.com/how-it-works (o que é, exemplo de lançamento, área de cliente, arquivo, testemunhos).</li>
+    <li id="f2">Kangaroo Files, Perguntas Frequentes: kangaroofiles.com/faq (envio multicanal, cruzamento eFatura, validações, demonstrações, «não substitui o contabilista»).</li>
+    <li id="f3">Kangaroo Files, Termos e Condições, §8 a §11: kangaroofiles.com/terms (planos Free e Premium); intervalo 0 a 119,90 € nos dados estruturados da página inicial.</li>
+    <li id="f4">Kangaroo Files, «Como funciona», secção do Agente de Contabilidade IA: kangaroofiles.com/how-it-works (lançamento automático, validação cruzada, aprendizagem contínua).</li>
+    <li id="f5">Estatuto da OCPCA, Decreto Presidencial n.º 232/10 (lex.ao); OCPCA, notícia sobre cédulas com QR e ligação de sistemas OCPCA-AGT (ocpcangola.org).</li>
+    <li id="f6">Plano Geral de Contabilidade, Decreto n.º 82/01; Regulamento do Código do IVA, Decreto Presidencial n.º 180/19, art. 20.º (conta 34.5 e subcontas), lex.ao.</li>
+    <li id="f7">LookupTax, Angola VAT guidelines (taxas 14% e 7%, regimes por volume de negócios); EY Tax Alert sobre o apuramento mensal do IVA na Modelo 7 com preenchimento automático pela AGT.</li>
+    <li id="f8">INE, REMPE-2019, citado pela ANGOP (83.722 empresas, 84% microempresas, 49% em Luanda, comércio 59%).</li>
+    <li id="f9">Plano de Atividades da OCPCA 2019 (4.691 membros, 2.649 candidatos, 2.463 estagiários), citado em estudo académico sobre o acesso à profissão de contabilista em Angola.</li>
+    <li id="f10">Lei n.º 22/11 de Proteção de Dados Pessoais: CMS Expert Guide (Angola) e PLMJ, nota informativa sobre dados pessoais em Angola (notificação à APD, direitos dos titulares, coimas aplicadas em 2024, consulta pública da revisão em 2025).</li>
+    <li id="f11">Regime Jurídico das Facturas, Decreto Presidencial n.º 71/25: EY Tax Alert; RVA Angola, nota informativa sobre o calendário da AGT (obrigatoriedade em 2026 para Grandes Contribuintes e fornecedores do Estado; alargamento a 1 de janeiro de 2027); Cegid Angola, faturação eletrónica.</li>
+    <li id="f12">EY e Thomson Reuters, atualizações sobre o SAF-T (AO): submissão anual da contabilidade até 10 de abril, dispensa para o exercício de 2025 e obrigatoriedade a partir do exercício de 2026.</li>
+    <li id="f13">WiPay, site oficial wipay.ao (comissões: Multicaixa Express 1%, Referência 1%; checkout alojado e confirmação assinada); EMIS/Multicaixa Express (descrição do canal e aprovação na app).</li>
+    <li id="f14">DataReportal, Digital 2026: Angola (17,6 milhões de utilizadores de internet, 44,8%); Sensor Tower, blog Q4 2025 (WhatsApp com cerca de 6,2 milhões de ativos semanais em Angola); INACOM 2024 via 360angola (quotas Unitel 73%, Africell 25%).</li>
+    <li id="f15">Google Play Console, ajuda oficial (registo de programador: 25 USD, pagamento único); Apple Developer Program (99 USD por ano).</li>
+    <li id="f16">Cegid, imprensa (Primavera «um dos sistemas de gestão mais utilizados em Angola», PHC com mais de 20 anos, aquisição da PHC em janeiro de 2025); WL Consultoria, área de cliente para receção mensal de documentos; Kacennu e Logigate (software angolano de faturação e gestão).</li>
+  </ol>
+</section>
+
+</div>
+</main>
+<footer>Documento de trabalho, 18 de novembro de 2026. Feito para ser analisado e ajustado antes de qualquer construção.</footer>
+</body>
+</html>
