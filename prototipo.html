@@ -52,10 +52,23 @@
   .conta:active{background:var(--fundo);}
   .estado{font-size:12.5px;font-weight:700;padding:3px 9px;border-radius:12px;}
   .e-rec{background:#E6ECFA;color:var(--azul);} .e-tra{background:#FDF6E0;color:var(--ambar);} .e-ok{background:#E3F2EA;color:var(--verde);}
-  .nav{position:sticky;bottom:0;background:#fff;border-top:1px solid var(--linha);display:flex;padding:8px 4px calc(8px + env(safe-area-inset-bottom));}
-  .nav button{flex:1;background:none;border:0;font-size:12px;color:var(--suave);cursor:pointer;padding:6px 2px;font-weight:600;}
+  .nav{position:sticky;bottom:0;background:#fff;border-top:1px solid var(--linha);display:flex;padding:10px 4px calc(10px + env(safe-area-inset-bottom));}
+  .nav button{flex:1;background:none;border:0;color:var(--suave);cursor:pointer;padding:8px 2px;}
   .nav button.on{color:var(--azul);}
-  .nav .ico{display:block;font-size:19px;margin-bottom:2px;}
+  .nav .ico{display:block;font-size:25px;line-height:1;}
+  .grade{display:grid;gap:11px;}
+  .grade .cartao{margin-bottom:0;}
+  @media (min-width:700px){
+    .barra,.tel{max-width:760px;}
+    body .nota{max-width:760px;}
+    .grade{grid-template-columns:1fr 1fr;}
+    .ecra{padding:22px 22px 90px;}
+  }
+  @media (min-width:1100px){
+    .barra,.tel{max-width:1040px;}
+    body .nota{max-width:1040px;}
+    .grade{grid-template-columns:repeat(3,1fr);}
+  }
   .voltar{background:none;border:0;color:var(--azul);font-size:15px;font-weight:700;cursor:pointer;padding:0 0 10px;}
   .nota{max-width:430px;margin:0 auto;padding:12px 16px 30px;font-size:12.5px;color:var(--suave);text-align:center;}
   .grande{font-size:40px;text-align:center;margin:8px 0;}
@@ -77,18 +90,22 @@
   <div class="ecra on" id="e-hoje">
     <div class="topo-ecra"><div class="avatar">EC</div><div><div class="nome">Escritório Exemplo</div><div class="sub">Terça-feira, 18 de novembro</div></div></div>
     <h2 class="tit">Tarefas de hoje</h2>
+    <div class="grade">
     <div class="cartao" onclick="vai('e-rever')"><div class="linha1"><span class="t">Documentos por rever</span><span class="badge">3</span></div><div class="d">Loja Kiala · o mais antigo espera há 2 dias</div></div>
     <div class="cartao" onclick="vai('e-perfil')"><div class="linha1"><span class="t">Mês por fechar</span><span class="badge azul">1</span></div><div class="d">Padaria Horizonte · outubro</div></div>
     <div class="cartao" onclick="vai('e-perfil')"><div class="linha1"><span class="t">Documentos em falta</span><span class="badge azul">2</span></div><div class="d">Loja Kiala · detetados pelo SAF-T de vendas</div></div>
     <div class="cartao"><div class="linha1"><span class="t">Tudo tratado</span><span class="badge verde">✓</span></div><div class="d">Oficina Girassol · novembro em dia</div></div>
+    </div>
   </div>
   <!-- ESCRITÓRIO: EMPRESAS -->
   <div class="ecra" id="e-empresas">
     <h2 class="tit">Empresas</h2>
+    <div class="grade">
     <div class="cartao" onclick="vai('e-perfil')"><div class="linha1"><span class="t">Loja Kiala</span><span class="badge">3</span></div><div class="d">Comércio Geral · NIF 5005554443 · regime geral</div></div>
     <div class="cartao" onclick="vai('e-perfil')"><div class="linha1"><span class="t">Padaria Horizonte, Lda</span><span class="badge azul">1</span></div><div class="d">NIF 5001234567 · mês de outubro por fechar</div></div>
     <div class="cartao"><div class="linha1"><span class="t">Oficina Girassol, Lda</span><span class="badge verde">✓</span></div><div class="d">NIF 5007654321 · em dia</div></div>
-    <button class="btn sec">+ Registar nova empresa</button>
+    </div>
+    <button class="btn sec" style="margin-top:11px">+ Registar nova empresa</button>
   </div>
   <!-- ESCRITÓRIO: PERFIL -->
   <div class="ecra" id="e-perfil">
@@ -100,9 +117,11 @@
       <div class="passo"><div class="bola">3</div>Rever</div>
       <div class="passo"><div class="bola">4</div>Fechar</div>
     </div>
+    <div class="grade">
     <div class="cartao" onclick="vai('e-rever')"><div class="linha1"><span class="t">A seguir: rever 3 documentos</span><span class="badge">3</span></div><div class="d">A IA já classificou. Só falta a tua validação.</div></div>
     <div class="cartao"><div class="t">Documentos em falta: 2</div><div class="d">O SAF-T de vendas mostra 2 faturas que a empresa ainda não enviou. Pedido automático pronto a enviar.</div></div>
     <div class="cartao" onclick="vai('e-arquivo')"><div class="t">Arquivo da empresa</div><div class="d">Pesquisar por valor, data, NIF ou conteúdo</div></div>
+    </div>
   </div>
   <!-- ESCRITÓRIO: REVER DOCUMENTO -->
   <div class="ecra" id="e-rever">
@@ -137,15 +156,17 @@
     <button class="voltar" onclick="vai('e-perfil')">‹ Loja Kiala</button>
     <h2 class="tit">Arquivo</h2>
     <input class="pesquisa" placeholder="Valor, data, NIF, fornecedor, produto...">
+    <div class="grade">
     <div class="cartao" onclick="vai('e-rever')"><div class="linha1"><span class="t">Papelaria Central, Lda</span><span>96.900 Kz</span></div><div class="d">FT 2026/0201 · 03/11/2026 · linha encontrada: «Papel A4»</div></div>
     <div class="cartao"><div class="linha1"><span class="t">Grossista Alimentar Kwanza</span><span>1.254.000 Kz</span></div><div class="d">FT 2026/0450 · 13/11/2026 · mercadoria</div></div>
     <div class="cartao"><div class="linha1"><span class="t">Imobiliária Vista Alegre</span><span>205.200 Kz</span></div><div class="d">FR 2026/0105 · 05/11/2026 · renda</div></div>
+    </div>
   </div>
   <div class="nav">
-    <button class="on" data-nav onclick="vai('e-hoje')"><span class="ico">⌂</span>Hoje</button>
-    <button data-nav onclick="vai('e-empresas')"><span class="ico">▦</span>Empresas</button>
-    <button data-nav onclick="vai('e-arquivo')"><span class="ico">⌕</span>Arquivo</button>
-    <button data-nav onclick="vai('e-hoje')"><span class="ico">☰</span>Menu</button>
+    <button class="on" data-nav onclick="vai('e-hoje')" title="Hoje" aria-label="Hoje"><span class="ico">⌂</span></button>
+    <button data-nav onclick="vai('e-empresas')" title="Empresas" aria-label="Empresas"><span class="ico">▦</span></button>
+    <button data-nav onclick="vai('e-arquivo')" title="Arquivo" aria-label="Arquivo"><span class="ico">⌕</span></button>
+    <button data-nav onclick="vai('e-hoje')" title="Menu" aria-label="Menu"><span class="ico">☰</span></button>
   </div>
 </div>
 
@@ -168,9 +189,11 @@
   <!-- EMPRESA: DOCUMENTOS -->
   <div class="ecra" id="c-docs">
     <h2 class="tit">Os meus documentos</h2>
+    <div class="grade">
     <div class="cartao"><div class="linha1"><span class="t">Fatura da Papelaria Central</span><span class="estado e-tra">A ser tratado</span></div><div class="d">Enviada hoje</div></div>
     <div class="cartao"><div class="linha1"><span class="t">Recibo da renda</span><span class="estado e-ok">Tratado</span></div><div class="d">Enviado a 05/11</div></div>
     <div class="cartao"><div class="linha1"><span class="t">Fatura do combustível</span><span class="estado e-rec">Recebido</span></div><div class="d">Enviada a 14/11</div></div>
+    </div>
   </div>
   <!-- EMPRESA: O MEU MÊS -->
   <div class="ecra" id="c-mes">
@@ -184,10 +207,10 @@
     <button class="btn pri" onclick="vai('c-enviar')">Enviar agora</button>
   </div>
   <div class="nav">
-    <button class="on" data-nav onclick="vai('c-inicio')"><span class="ico">⌂</span>Início</button>
-    <button data-nav onclick="vai('c-enviar')"><span class="ico">＋</span>Enviar</button>
-    <button data-nav onclick="vai('c-docs')"><span class="ico">▦</span>Documentos</button>
-    <button data-nav onclick="vai('c-mes')"><span class="ico">◔</span>O meu mês</button>
+    <button class="on" data-nav onclick="vai('c-inicio')" title="Início" aria-label="Início"><span class="ico">⌂</span></button>
+    <button data-nav onclick="vai('c-enviar')" title="Enviar" aria-label="Enviar"><span class="ico">＋</span></button>
+    <button data-nav onclick="vai('c-docs')" title="Documentos" aria-label="Documentos"><span class="ico">▦</span></button>
+    <button data-nav onclick="vai('c-mes')" title="O meu mês" aria-label="O meu mês"><span class="ico">◔</span></button>
   </div>
 </div>
 <div class="nota">Protótipo de UI/UX para aprovação. Nada aqui é a aplicação real: os dados são de exemplo e servem para validar ecrãs e fluxos antes da construção.</div>
